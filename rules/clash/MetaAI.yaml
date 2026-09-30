@@ -1,0 +1,5 @@
+# Generated from rules/local/MetaAI.list
+payload:
+  - 'DOMAIN-SUFFIX,meta.ai'
+  - 'DOMAIN-SUFFIX,metademolab.com'
+  - 'DOMAIN-SUFFIX,metaaivm.com'

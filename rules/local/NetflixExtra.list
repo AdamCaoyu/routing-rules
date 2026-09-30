@@ -1,0 +1,5 @@
+# blackmatrix7 Netflix 的服务专用补充；不包含共享 AWS 地区和 cookie 平台。
+DOMAIN,e13252.dscg.akamaiedge.net
+DOMAIN,h-netflix.online-metrix.net
+DOMAIN-SUFFIX,netflix.com.au
+DOMAIN-SUFFIX,netflixstudios.com

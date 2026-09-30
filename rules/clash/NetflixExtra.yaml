@@ -1,0 +1,6 @@
+# Generated from rules/local/NetflixExtra.list
+payload:
+  - 'DOMAIN,e13252.dscg.akamaiedge.net'
+  - 'DOMAIN,h-netflix.online-metrix.net'
+  - 'DOMAIN-SUFFIX,netflix.com.au'
+  - 'DOMAIN-SUFFIX,netflixstudios.com'

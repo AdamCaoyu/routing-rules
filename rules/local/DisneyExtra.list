@@ -1,0 +1,5 @@
+# blackmatrix7 Disney 的服务专用补充；共享 AWS / 遥测平台不整体分配。
+DOMAIN-SUFFIX,abcnews.edgesuite.net
+DOMAIN-SUFFIX,disney.demdex.net
+DOMAIN-SUFFIX,dlp-media.com
+DOMAIN-SUFFIX,dssedge.com

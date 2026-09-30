@@ -1,0 +1,12 @@
+# Apple Intelligence / Siri / Search
+# Source: https://support.apple.com/en-us/101555 (checked 2026-09-30)
+# Policy-free list for subconverter; place before the general Apple ruleset.
+DOMAIN,guzzoni.apple.com
+DOMAIN-SUFFIX,smoot.apple.com
+DOMAIN,apple-relay.apple.com
+DOMAIN,apple-relay.cloudflare.com
+DOMAIN,apple-relay.fastly-edge.com
+DOMAIN,cp4.cloudflare.com
+
+# Precise relay endpoint also listed by MetaCubeX/meta-rules-dat.
+DOMAIN,apple-relay.mask.apple-dns.net

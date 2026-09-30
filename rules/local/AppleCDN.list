@@ -1,0 +1,7 @@
+# Apple CDN 精确例外；源 blackmatrix7 Apple。避免 Microsoft 的共享 CDN 后缀抢先匹配。
+DOMAIN,e16991.b.akamaiedge.net
+DOMAIN-SUFFIX,appldnld.apple.com.edgesuite.net
+DOMAIN-SUFFIX,ls.apple.com.edgesuite.net
+DOMAIN-SUFFIX,apple-support.akadns.net
+DOMAIN-SUFFIX,apple.com.akadns.net
+DOMAIN-SUFFIX,icloud.com.akadns.net

@@ -1,0 +1,9 @@
+#国外域名
+DOMAIN-SUFFIX,letsencrypt.org
+DOMAIN-SUFFIX,acme-v02.api.letsencrypt.org
+DOMAIN-SUFFIX,acme-staging-v02.api.letsencrypt.org
+DOMAIN-SUFFIX,dynv6.com
+
+#国内域名
+DOMAIN-SUFFIX,adamcao.v6.rocks
+DOMAIN-SUFFIX,v6.rocks

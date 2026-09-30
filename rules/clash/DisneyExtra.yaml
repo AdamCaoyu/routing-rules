@@ -1,0 +1,6 @@
+# Generated from rules/local/DisneyExtra.list
+payload:
+  - 'DOMAIN-SUFFIX,abcnews.edgesuite.net'
+  - 'DOMAIN-SUFFIX,disney.demdex.net'
+  - 'DOMAIN-SUFFIX,dlp-media.com'
+  - 'DOMAIN-SUFFIX,dssedge.com'
