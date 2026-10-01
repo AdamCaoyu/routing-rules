@@ -12,22 +12,38 @@ import yaml
 config = yaml.safe_load(Path(sys.argv[1]).read_text())
 groups = {g['name']: g for g in config['proxy-groups']}
 ai = '🍏 Apple Intelligence'
-for name in ['所有','港台日新韩','台日新韩','香港','台湾','日本','新加坡','韩国','美国','其他']:
+for name in ['所有','香港','台湾','日本','新加坡','韩国','美国','其他']:
     g = groups[name+'-自动']
     assert g['type'] == 'url-test'
     assert g['interval'] == 180 and g['tolerance'] == 100
     assert g['proxies'] and 'DIRECT' not in g['proxies']
     assert g['proxies'][-1] == 'REJECT'
 assert groups[ai]['proxies'][0] == '💬 ChatGPT'
-assert groups['☁️ OneDrive']['proxies'][0] == '美国-自动'
+assert groups['☁️ OneDrive']['proxies'][0] == '美国节点'
 assert groups['🔑 微软登录']['proxies'][0] == '☁️ OneDrive'
 assert groups['Ⓜ️ Microsoft']['proxies'][0] == 'DIRECT'
 assert config['rules'][-1] == 'MATCH,DIRECT'
-for name in ['💬 ChatGPT','🧠 Claude','🤖 Grok','🔍 Perplexity','🦙 Meta AI','✨ 其他 AI','👯‍♂️ TikTok','🙋 Telegram','📘 GitHub','🔎 Google','Ⓜ️ Microsoft','💳 PayPal','🌳 Amazon','☁️ OneDrive','🔑 微软登录']:
+from generate_groups import region_patterns, eligible_pattern, service_names
+node_names = {p['name'] for p in config['proxies']}
+for name in service_names():
     assert groups[name]['type'] == 'select'
-    eligible = {p['name'] for p in config['proxies']
-                if not re.search('下载|公益|备用|剩余|到期|官网|异常|流量|套餐|等级|重置', p['name'])}
-    assert eligible <= set(groups[name]['proxies']), f'{name}: missing independently selectable nodes'
+    assert set(groups[name]['proxies']) <= set(groups) | {'DIRECT','REJECT'}, name
+    assert not (set(groups[name]['proxies']) & node_names), name
+    assert '所有-手动' in groups[name]['proxies']
+    assert '美国节点' in groups[name]['proxies']
+for region,pattern in region_patterns().items():
+    expected={n for n in node_names if re.search(pattern,n)}
+    assert set(groups[region+'-自动']['proxies']) == expected | {'REJECT'}, region
+    chooser=groups[region+'节点']
+    assert chooser['type']=='select' and chooser['proxies'][0]==region+'-自动'
+    assert set(chooser['proxies'])==expected | {region+'-自动','REJECT'}, region
+for name in ['所有-自动','所有-手动']:
+    expected={n for n in node_names if re.search(eligible_pattern(),n)}
+    assert set(groups[name]['proxies'])==expected | {'REJECT'}, name
+for n in node_names:
+    memberships=[r for r in region_patterns() if n in groups[r+'节点']['proxies']]
+    assert len(memberships)<=1,(n,memberships)
+assert '台日新韩-自动' not in groups and '港台日新韩-自动' not in groups
 
 rules = []
 for rule in config['rules']:

@@ -1,0 +1,146 @@
+[
+  {
+    "name": "💬 ChatGPT",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🧠 Claude",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🤖 Grok",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🔍 Perplexity",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🦙 Meta AI",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "✨ 其他 AI",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🍏 Apple Intelligence",
+    "default": "💬 ChatGPT",
+    "extra": []
+  },
+  {
+    "name": "🍎 Apple",
+    "default": "DIRECT",
+    "extra": []
+  },
+  {
+    "name": "🔑 微软登录",
+    "default": "☁️ OneDrive",
+    "extra": [
+      "Ⓜ️ Microsoft"
+    ]
+  },
+  {
+    "name": "☁️ OneDrive",
+    "default": "美国节点",
+    "extra": [
+      "Ⓜ️ Microsoft"
+    ]
+  },
+  {
+    "name": "Ⓜ️ Microsoft",
+    "default": "DIRECT",
+    "extra": []
+  },
+  {
+    "name": "🔎 Google",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "📘 GitHub",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "👯‍♂️ TikTok",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🙋 Telegram",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🕊️ Twitter(X)",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🗣️ Facebook",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🌳 Amazon",
+    "default": "DIRECT",
+    "extra": []
+  },
+  {
+    "name": "💳 PayPal",
+    "default": "DIRECT",
+    "extra": []
+  },
+  {
+    "name": "🎞️ YouTube",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "📺 Disney",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🎥 Netflix",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🎬 HBO",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🎵 Spotify",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🎮 Steam",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🕹️ Game",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "🌍 国外",
+    "default": "所有-自动",
+    "extra": []
+  },
+  {
+    "name": "➡️ 国内",
+    "default": "DIRECT",
+    "extra": []
+  }
+]

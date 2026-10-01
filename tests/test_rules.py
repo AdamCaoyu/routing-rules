@@ -71,7 +71,7 @@ class RulesTests(unittest.TestCase):
                 groups[name] = [m[2:] for m in members if m.startswith('[]')]
         self.assertIn(AI, groups)
         self.assertEqual(groups[AI][0], '💬 ChatGPT')
-        self.assertEqual(groups['☁️ OneDrive'][0], '美国-自动')
+        self.assertEqual(groups['☁️ OneDrive'][0], '美国节点')
         self.assertEqual(groups['🔑 微软登录'][0], '☁️ OneDrive')
         self.assertEqual(groups['🍎 Apple'][0], 'DIRECT')
         self.assertEqual(groups['Ⓜ️ Microsoft'][0], 'DIRECT')
@@ -97,7 +97,7 @@ class RulesTests(unittest.TestCase):
         rows = {s.split('=',1)[1].split('`')[0]:s for s in template() if s.startswith('custom_proxy_group=')}
         for name in names:
             self.assertEqual(rows[name].split('`')[1], 'select')
-        for name in ['所有','港台日新韩','台日新韩','香港','台湾','日本','新加坡','韩国','美国','其他']:
+        for name in ['所有','香港','台湾','日本','新加坡','韩国','美国','其他']:
             row = rows[name+'-自动']
             self.assertEqual(row.split('`')[1], 'url-test')
             self.assertTrue(row.endswith('`180,5,100'))
@@ -105,15 +105,15 @@ class RulesTests(unittest.TestCase):
         pattern = rows['美国-自动'].split('`')[2]
         self.assertTrue(re.search(pattern,'US Test'))
         self.assertFalse(re.search(pattern,'RUS Test'))
-        self.assertNotIn('广美',rows['港台日新韩-自动'])
+        self.assertNotIn('港台日新韩-自动',rows)
+        self.assertNotIn('台日新韩-自动',rows)
 
-    def test_sensitive_services_can_select_nodes_independently(self):
+    def test_services_can_select_regions_without_raw_nodes(self):
         for name in ['💬 ChatGPT','🧠 Claude','📘 GitHub','🔎 Google','Ⓜ️ Microsoft','💳 PayPal','🌳 Amazon','☁️ OneDrive','🔑 微软登录']:
             row = next(s for s in template() if s.startswith('custom_proxy_group='+name+'`'))
-            pattern = row.split('`')[-1]
-            self.assertTrue(re.search(pattern,'US Test'))
-            self.assertTrue(re.search(pattern,'JP Test'))
-            self.assertFalse(re.search(pattern,'US 下载专用'))
+            self.assertTrue(all(m.startswith('[]') for m in row.split('`')[2:]))
+            self.assertIn('[]美国节点',row.split('`'))
+            self.assertIn('[]所有-手动',row.split('`'))
 
     def test_onedrive_alias_and_scope(self):
         rules = entries(ROOT/'rules/local/OneDrive.list')
@@ -130,13 +130,15 @@ class RulesTests(unittest.TestCase):
         self.assertNotIn('AI1',before.decode())
         self.assertNotIn('AI2',before.decode())
 
-    def test_service_selectors_share_full_choices(self):
-        rows = [s for s in template() if s.startswith('custom_proxy_group=') and '`select`' in s and not s.startswith('custom_proxy_group=所有-手动')]
+    def test_service_selectors_share_compact_choices(self):
+        rows = [s for s in template() if s.startswith('custom_proxy_group=') and '`select`' in s]
         for row in rows:
-            for choice in ['[]DIRECT','[]所有-自动','[]美国-自动','[]香港-自动','[]REJECT']:
+            name=row.split('=',1)[1].split('`')[0]
+            if name=='所有-手动' or name.endswith('节点'):
+                continue
+            for choice in ['[]DIRECT','[]所有-自动','[]美国节点','[]香港节点','[]REJECT']:
                 self.assertIn(choice,row.split('`'))
-            self.assertTrue(re.search(row.split('`')[-1], 'JP Test'))
-            self.assertFalse(re.search(row.split('`')[-1], '流量:123GB 等级6剩15天'))
+            self.assertLessEqual(len(row.split('`')[2:]),13)
 
 if __name__ == '__main__':
     unittest.main()
