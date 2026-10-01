@@ -11,14 +11,17 @@ spec.loader.exec_module(g)
 class RegionTests(unittest.TestCase):
     def test_name_classification_is_exclusive(self):
         cases={
-            'US🔛❻gR.TW台北|AI':'美国','HK🔛❻gR.US王者':'香港',
+            'US🔛❻gR.TW台北|AI':'台湾','HK🔛❻gR.US王者':'美国',
             '❶gR.HKT节点':'香港','❻gR.TW节点':'台湾','❷TJ.JP节点':'日本',
             '❸gR.SG节点':'新加坡','KR Seoul':'韩国','❻gR.US节点':'美国',
             '❶TJ.RU节点':'其他','❶TJ.UK节点':'其他','❸gR.TR节点':'其他',
             'US Test':'美国','us test':'美国','Taiwan 01':'台湾',
             '🇯🇵 JP 01':'日本','香港 HKT 01':'香港',
-            'JP US 双标记':None,'ZZ🔛TW台北':None,'RUS Test':None,
-            '无地区标记':None,
+            'JP US 双标记':None,'ZZ🔛TW台北':'台湾','RUS Test':None,
+            '无地区标记':None,'US🔛无地区标记':None,
+            'US🔛TW台北':'台湾','US🔛HK🔛TW台北':'台湾',
+            'US🔛JP节点':'日本','US🔛SG节点':'新加坡',
+            'US🔛US王者':'美国','CN1•❸gR.TW台北':'台湾',
         }
         for name,expected in cases.items():
             hits=[region for region,pattern in g.region_patterns().items() if re.search(pattern,name)]

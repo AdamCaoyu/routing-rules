@@ -21,7 +21,7 @@ def marker(region):
     # ASCII boundaries allow .US中文 while excluding RUS and unrelated words.
     codes='|'.join(re.escape(s) for s in region['codes'])
     names='|'.join(re.escape(s) for s in region['names'])
-    return '(?:(?:^|[^A-Za-z])(?:'+codes+')(?![A-Za-z])|'+names+')'
+    return '(?:(?<![A-Za-z])(?:'+codes+')(?![A-Za-z])|'+names+')'
 
 def region_patterns():
     config=settings()
@@ -31,10 +31,11 @@ def region_patterns():
     for name,region in regions.items():
         own=marker(region)
         other='|'.join(marker(r) for n,r in regions.items() if n!=name)
-        prefix='(?:'+'|'.join(re.escape(c) for c in region['codes'])+')🔛'
-        # Explicit XX🔛 labels override every later country marker. Unknown
-        # labels and unprefixed multi-region names stay in all-manual/auto only.
-        result[name]=guard+'(?:'+prefix+'.*|(?![A-Za-z]{2,3}🔛)(?!.*(?:'+other+'))(?=.*'+own+').+)$'
+        # The user clarified that XX🔛 is a forwarding label, not the
+        # region to classify. Consume all such leading labels before matching.
+        # The negative lookahead prevents backtracking into a consumed label.
+        relay='(?:[A-Za-z]{2,3}🔛)*(?![A-Za-z]{2,3}🔛)'
+        result[name]=guard+relay+'(?!.*(?:'+other+'))(?=.*'+own+').+$'
     return result
 
 def build_groups():
