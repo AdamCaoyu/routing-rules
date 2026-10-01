@@ -100,9 +100,19 @@ cases.update({'account.live.com':'🔑 微软登录','oauth.live.com':'🔑 微�
               'apple.com.akadns.net':'🍎 Apple','apple-support.akadns.net':'🍎 Apple',
               'redirector.offline-maps.gvt1.com':'🔎 Google','beacons.gvt2.com':'🔎 Google',
               'trae.ai':'✨ 其他 AI','marscode.com':'✨ 其他 AI','coderabbit.gallery.vsassets.io':'✨ 其他 AI',
-              'unrelated.us-west-2.amazonaws.com':'🌳 Amazon',
-              'unrelated.execute-api.us-east-1.amazonaws.com':'🌳 Amazon',
-              'unrelated.execute-api.ap-southeast-1.amazonaws.com':'🌳 Amazon'})
+              'unrelated.us-west-2.amazonaws.com':'🌍 国外',
+              'unrelated.execute-api.us-east-1.amazonaws.com':'🌍 国外',
+              'unrelated.execute-api.ap-southeast-1.amazonaws.com':'🌍 国外'})
+cases.update({'ppl-ai-file-upload.s3.amazonaws.com':'🔍 Perplexity',
+              'pplx-res.cloudinary.com':'🔍 Perplexity',
+              'servd-anthropic-website.b-cdn.net':'🧠 Claude',
+              'unrelated.cloudfront.net':'🌍 国外'})
+# Shared Akamai names must not be classified as Apple/Microsoft merely by their CDN.
+for domain in ['unrelated.akadns.net','unrelated.edgesuite.net','unrelated.b.akamaiedge.net','unrelated.g.akamaiedge.net']:
+    assert first_domain_match(domain) not in ['🍎 Apple','Ⓜ️ Microsoft'], domain
+for domain in ['host.livekit.cloud','turn.livekit.cloud','browser-intake-datadoghq.com','gateway.ai.cloudflare.com']:
+    assert first_domain_match(domain) != '✨ 其他 AI', domain
+
 # Domains are checked without DNS; IP-only connections independently exercise IP providers.
 for address, expected in [('192.168.100.1','DIRECT'),('23.246.1.1','🎥 Netflix'),('2607:fb10::1','🎥 Netflix')]:
     ip = ipaddress.ip_address(address)

@@ -19,7 +19,7 @@ def local_rules():
         if not line.startswith('ruleset='):
             continue
         group, url = line[8:].split(',', 1)
-        if '/AdamCaoyu/routing-rules/' in url:
+        if '/rules/clash/' in url:
             path = ROOT / 'rules/local' / (url.rsplit('/', 1)[-1].split('.')[0] + '.list')
             result.append((group, path))
     return result

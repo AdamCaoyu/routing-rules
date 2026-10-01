@@ -26,10 +26,13 @@ ChatGPT、Claude、Grok、Perplexity、Meta AI、其他 AI 与 TikTok、Telegram
 | `config/rules.ini` | 规则源、归属策略、匹配顺序 |
 | `config/settings.ini` | 转换开关 |
 | `rules/local/*.list` | 个人补充域名，无策略字段，按服务区分 |
+| `rules/filtered/*.yaml` | 从上游筛选的规则，附来源与排除清单，每日检查更新 |
 | `rules/clash/*.yaml` | 从本地列表生成的 Clash 原生格式 |
 | `Clash-Full.ini` | 自动生成的最终模板，供订阅转换读取 |
 | `docs/` | 使用说明、规则目录、来源与验证 |
 | `shadowrocket/` | 后续 Shadowrocket 配置位置 |
+
+依赖：Python 3 与 `PyYAML==6.0.3`。手动更新筛选规则执行 `python3 scripts/sync_sources.py`。
 
 修改源文件后执行 `python3 scripts/build.py`，再运行 `python3 -m unittest discover -s tests -v`。不要单独编辑生成文件。
 
