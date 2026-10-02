@@ -14,8 +14,8 @@ def service_names():
     return [s['name'] for s in services()]
 
 def eligible_pattern():
-    blocked='|'.join(re.escape(s) for s in settings()['exclude'])
-    return '(?i)^(?!.*(?:'+blocked+')).+'
+    # Keep every non-empty subscription node name, regardless of status labels.
+    return '(?i)^.+'
 
 def marker(region):
     # ASCII boundaries allow .US中文 while excluding RUS and unrelated words.
@@ -26,7 +26,7 @@ def marker(region):
 def region_patterns():
     config=settings()
     regions=config['regions']
-    guard=eligible_pattern()[:-2]  # remove .+, keep case flag/anchor/exclusion
+    guard='(?i)^'  # Region classification only; no status-word exclusions.
     result={}
     for name,region in regions.items():
         own=marker(region)
@@ -46,7 +46,7 @@ def build_groups():
     for service in services():
         refs=list(dict.fromkeys([service['default'],*service['extra'],*choices]))
         rows.append('custom_proxy_group='+service['name']+'`select`'+'`'.join('[]'+r for r in refs))
-    rows+=['','; 所有手动可选择有效节点，包括尚未识别地区的节点。',
+    rows+=['','; 所有手动可选择全部节点，包括尚未识别地区的节点。',
            'custom_proxy_group=所有-手动`select`'+eligible_pattern()+'`[]REJECT',
            'custom_proxy_group=所有-自动`url-test`'+eligible_pattern()+'`[]REJECT`http://www.gstatic.com/generate_204`180,5,100',
            '', '; 地区选择卡片：默认进入同地区自动测速，也可手动固定节点。']

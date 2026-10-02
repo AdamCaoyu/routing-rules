@@ -28,7 +28,7 @@ ChatGPT、Claude、Grok、Perplexity、Meta AI 与 TikTok、Telegram 一样独�
 | 文件 / 目录 | 维护内容 |
 | --- | --- |
 | `config/services.json` | 服务组默认选项及少量共享登录关联 |
-| `config/regions.json` | 地区名称、缩写和统一排除词 |
+| `config/regions.json` | 地区名称与缩写（不按状态词排除节点） |
 | `config/groups.ini` | 自动生成的分组定义，不手动编辑 |
 | `config/rules.ini` | 规则源、归属策略、匹配顺序 |
 | `config/settings.ini` | 转换开关 |

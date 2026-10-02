@@ -27,10 +27,15 @@ class RegionTests(unittest.TestCase):
             hits=[region for region,pattern in g.region_patterns().items() if re.search(pattern,name)]
             self.assertEqual(hits,[] if expected is None else [expected],name)
 
-    def test_exclusions_apply_to_every_node_group(self):
-        for name in ['US 下载专用','US 备用','US 公益','◈耗尽◈BR 巴西','香港 维护','流量:123GB 等级6剩15天']:
-            for pattern in [g.eligible_pattern(),*g.region_patterns().values()]:
-                self.assertIsNone(re.search(pattern,name),name)
+    def test_status_labels_do_not_exclude_nodes(self):
+        cases={'US 下载专用':'美国','US 备用':'美国','US 公益':'美国',
+               '◈耗尽◈BR 巴西':'其他','香港 维护':'香港','TW 被墙':'台湾',
+               'US🔛TW 失效':'台湾','US 过期':'美国'}
+        for name,region in cases.items():
+            self.assertIsNotNone(re.search(g.eligible_pattern(),name),name)
+            hits=[r for r,p in g.region_patterns().items() if re.search(p,name)]
+            self.assertEqual(hits,[region],name)
+        self.assertIsNotNone(re.search(g.eligible_pattern(),'流量:123GB 等级6剩15天'))
 
     def test_services_only_reference_groups_and_builtins(self):
         rows=g.build_groups().splitlines()
