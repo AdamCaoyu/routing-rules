@@ -81,12 +81,17 @@ def first_domain_match(domain):
             return parts[2]
 
 cases = {}
+for domain in ['gateway.icloud.com', 'apple-relay.apple.com',
+               'apple-relay.fastly-edge.com', 'apple-relay.cloudflare.com',
+               'guzzoni.apple.com', 'cp4.cloudflare.com', 'gspe1-ssl.ls.apple.com']:
+    cases['sub.' + domain] = ai
 for domain in ['guzzoni.apple.com', 'api.smoot.apple.com', 'apple-relay.apple.com',
                'apple-relay.cloudflare.com', 'apple-relay.fastly-edge.com',
-               'cp4.cloudflare.com', 'apple-relay.mask.apple-dns.net']:
+               'cp4.cloudflare.com', 'apple-relay.mask.apple-dns.net',
+               'gateway.icloud.com', 'gspe1-ssl.ls.apple.com']:
     cases[domain] = ai
-for domain in ['www.apple.com', 'gateway.icloud.com', 'apps.mzstatic.com',
-               'gspe1-ssl.ls.apple.com', 'push.apple.com', 'time.apple.com']:
+for domain in ['www.apple.com', 'apps.mzstatic.com',
+               'push.apple.com', 'time.apple.com']:
     cases[domain] = '🍎 Apple'
 cases.update({'chatgpt.com':'💬 ChatGPT','auth.openai.com':'💬 ChatGPT',
               'cdn.oaistatic.com':'💬 ChatGPT','files.oaiusercontent.com':'💬 ChatGPT',
