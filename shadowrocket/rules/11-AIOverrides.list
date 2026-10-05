@@ -1,0 +1,4 @@
+# Converted for Shadowrocket; Source: https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/AIOverrides.yaml
+DOMAIN-SUFFIX,trae.ai
+DOMAIN-SUFFIX,marscode.com
+DOMAIN-SUFFIX,coderabbit.gallery.vsassets.io

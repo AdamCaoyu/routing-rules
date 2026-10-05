@@ -1,0 +1,15 @@
+{
+  "status": "static checks passed",
+  "groups": 45,
+  "providers": 61,
+  "expanded_rules": 47074,
+  "domain_checks": 54,
+  "preserved_first_rules": [
+    "DOMAIN-SUFFIX,iqos.com,日本节点",
+    "IP-CIDR,192.168.100.0/24,HOME,no-resolve",
+    "RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list,REJECT",
+    "RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list,REJECT"
+  ],
+  "home_route_checks": 2,
+  "on_device_import": "not performed"
+}

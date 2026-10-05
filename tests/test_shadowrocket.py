@@ -1,0 +1,45 @@
+"""Regressions for the published iOS config and source conversion."""
+from pathlib import Path
+import importlib.util
+import sys
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import build_shadowrocket as build
+import validate_shadowrocket as check
+
+
+class ShadowrocketTests(unittest.TestCase):
+    def test_published_configuration_routes_and_boundaries(self):
+        report = check.validate()
+        self.assertGreaterEqual(report['groups'], 44)
+        self.assertEqual(report['status'], 'static checks passed')
+
+    def test_native_source_policy_is_not_embedded(self):
+        self.assertEqual(build.normalized('DOMAIN-SUFFIX,example.com,PROXY', 'native'),
+                         'DOMAIN-SUFFIX,example.com')
+        self.assertEqual(build.normalized('IP-CIDR,192.168.0.0/16,DIRECT,no-resolve', 'native'),
+                         'IP-CIDR,192.168.0.0/16,no-resolve')
+        self.assertIsNone(build.normalized('PROCESS-NAME,com.apple.geod', 'clash-classic'))
+        with self.assertRaises(ValueError):
+            build.normalized('DOMAIN-WILDCARD,*.example.com', 'clash-classic')
+
+    def test_region_regex_keeps_forwarding_prefix_behavior_without_option_commas(self):
+        import re
+        lines = build.group_lines()
+        patterns = {}
+        for line in lines:
+            name, body = line.split(' = ', 1)
+            if name.endswith('节点'):
+                field = next(p for p in body.split(',') if p.startswith('policy-regex-filter='))
+                patterns[name] = field.split('=', 1)[1]
+        for node, region in [('US🔛TW台北', '台湾节点'), ('HK🔛US王者', '美国节点'),
+                             ('US🔛HK🔛TW台北', '台湾节点'), ('香港 维护', '香港节点'),
+                             ('US 下载专用', '美国节点'), ('RUS Test', None)]:
+            hits = [name for name, pattern in patterns.items() if re.search(pattern, node)]
+            self.assertEqual(hits, [] if region is None else [region], node)
+
+
+if __name__ == '__main__':
+    unittest.main()

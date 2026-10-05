@@ -1,0 +1,8 @@
+# Converted for Shadowrocket; Source: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github-copilot.yaml
+# Attribution: MetaCubeX/meta-rules-dat; GPL-3.0, see repository licenses.
+DOMAIN,copilot-proxy.githubusercontent.com
+DOMAIN,copilot-workspace.githubnext.com
+DOMAIN,copilotprodattachments.blob.core.windows.net
+DOMAIN-SUFFIX,githubcopilot.com
+DOMAIN,copilot-telemetry-service.githubusercontent.com
+DOMAIN,copilot-telemetry.githubusercontent.com

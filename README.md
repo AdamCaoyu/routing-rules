@@ -37,10 +37,14 @@ ChatGPT、Claude、Grok、Perplexity、Meta AI 与 TikTok、Telegram 一样独�
 | `rules/clash/*.yaml` | 从本地列表生成的 Clash 原生格式 |
 | `Clash-Full.ini` | 自动生成的最终模板，供订阅转换读取 |
 | `docs/` | 使用说明、规则目录、来源与验证 |
-| `shadowrocket/` | 后续 Shadowrocket 配置位置 |
+| `shadowrocket/` | Shadowrocket 配置、原生规则集和对比说明 |
 
 依赖：Python 3 与 `PyYAML==6.0.3`。手动更新筛选规则执行 `python3 scripts/sync_sources.py`。
 
 修改源文件后执行 `python3 scripts/build.py`，再运行 `python3 -m unittest discover -s tests -v`。不要单独编辑生成文件。
 
 [使用说明](docs/使用说明.md) · [规则目录](docs/规则目录.md) · [来源与边界](docs/来源与边界.md) · [验证记录](docs/验证记录.md)
+
+## Shadowrocket
+
+已提供对齐 OpenClash 服务分组的优化版，以及保留旧分组的 Apple Intelligence 测试版。两份均保留 iqos、HOME 与两条广告规则在最前。见 [小火箭导入与维护](shadowrocket/README.md)及[对比分析](shadowrocket/对比分析.md)。

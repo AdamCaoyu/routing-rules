@@ -1,0 +1,7 @@
+# Converted for Shadowrocket; Source: https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/CaoyuDirect.yaml
+DOMAIN-SUFFIX,letsencrypt.org
+DOMAIN-SUFFIX,acme-v02.api.letsencrypt.org
+DOMAIN-SUFFIX,acme-staging-v02.api.letsencrypt.org
+DOMAIN-SUFFIX,dynv6.com
+DOMAIN-SUFFIX,adamcao.v6.rocks
+DOMAIN-SUFFIX,v6.rocks

@@ -1,0 +1,5 @@
+# Converted for Shadowrocket; Source: https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/DisneyExtra.yaml
+DOMAIN-SUFFIX,abcnews.edgesuite.net
+DOMAIN-SUFFIX,disney.demdex.net
+DOMAIN-SUFFIX,dlp-media.com
+DOMAIN-SUFFIX,dssedge.com

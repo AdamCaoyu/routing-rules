@@ -1,0 +1,622 @@
+{
+  "sources": [
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan_No_Resolve.yaml",
+      "format": "clash-classic",
+      "count": 140,
+      "removed_process_rules": 0,
+      "source_sha256": "44687576f81a639540cd678d5717d43467508d8c80678efde07588610bda239c",
+      "file": "00-Lan_No_Resolve.list",
+      "policy": "DIRECT",
+      "sha256": "2da3515f5c442bedf58843ba5652c88fdb87ac8fc1c2dbcfce01d4b5001a030e"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/Apple.yaml",
+      "format": "clash-classic",
+      "count": 9,
+      "removed_process_rules": 0,
+      "source_sha256": "bf7d4d997896ac16b3cf17342356d89a05f43f97d6b52c62a334ab9eea9b2e60",
+      "file": "01-Apple.list",
+      "policy": "🍏 Apple Intelligence",
+      "sha256": "3ec8fba34ec6676dd639c536cba1a9cb5940ec079237b14322e344c072baead7"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/ChatGPT.yaml",
+      "format": "clash-classic",
+      "count": 16,
+      "removed_process_rules": 0,
+      "source_sha256": "052cdae0a3504d7c24f3264f28529b4ed6be2c7af139d2ae8490901839e19b21",
+      "file": "02-ChatGPT.list",
+      "policy": "💬 ChatGPT",
+      "sha256": "003015220912ace3eff76875fec45ca7e0a440e398f2cc52274cdea5e252c754"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/CaoyuDirect.yaml",
+      "format": "clash-classic",
+      "count": 6,
+      "removed_process_rules": 0,
+      "source_sha256": "e8fe77df5d12353a091e4452685f44874e28b49ea533a90ac39a51d4eec0542f",
+      "file": "03-CaoyuDirect.list",
+      "policy": "➡️ 国内",
+      "sha256": "f2f8aa40950425ce53644e0b123d9bb5bc13d92d7f8960cc5733ad4934a3934e"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/CaoyuProxy.yaml",
+      "format": "clash-classic",
+      "count": 5,
+      "removed_process_rules": 0,
+      "source_sha256": "3d280713c468f638a489f91f9ae6e663c05633fa3618aa3d7bf22fb43434ad2a",
+      "file": "04-CaoyuProxy.list",
+      "policy": "🌍 国外",
+      "sha256": "ebd86352abcd7b00db5dbd22e1d06911f4a5beaf79e059544ad77c1f8eada0a7"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/xai.yaml",
+      "format": "clash-domain",
+      "count": 4,
+      "removed_process_rules": 0,
+      "source_sha256": "bc278d0ddab487db1db20b84289007acde3730917f67fdbd093bc8bebb8b4c91",
+      "file": "05-xai.list",
+      "policy": "🤖 Grok",
+      "sha256": "3d70f6f340eb0f49cc8d9a516d3e1111a0481dee9664a6ae92b04cf25d59ac90"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/anthropic.yaml",
+      "format": "clash-domain",
+      "count": 9,
+      "removed_process_rules": 0,
+      "source_sha256": "b2f2f545516246137ac8da3bf75f42fb1c4b9ab13d351e5d7de7700cda184d75",
+      "file": "06-anthropic.list",
+      "policy": "🧠 Claude",
+      "sha256": "64c4b9ff7b02856eac1aec5b708b42bdafb09d55ea297860442505d9ebc0f60b"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/MetaAI.yaml",
+      "format": "clash-classic",
+      "count": 3,
+      "removed_process_rules": 0,
+      "source_sha256": "babb948c9ebcf3390c3cf36f87d8835d253eca76ac9aab32bc6ba83a94ccc5de",
+      "file": "07-MetaAI.list",
+      "policy": "🦙 Meta AI",
+      "sha256": "1a6ba49b495a8f74ffbd0a86d4e210881da8a91193f898ca07d772bdff8c2cc1"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/perplexity.yaml",
+      "format": "clash-domain",
+      "count": 5,
+      "removed_process_rules": 0,
+      "source_sha256": "d86f0c26d28c0ed0b77b4fd9365b8a648233370c295588fa34a86ba853870d5a",
+      "file": "08-perplexity.list",
+      "policy": "🔍 Perplexity",
+      "sha256": "7a518ecb96dc2092cee04c2beab1c355bf448119c908bff9a05690a0526c9235"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github-copilot.yaml",
+      "format": "clash-domain",
+      "count": 6,
+      "removed_process_rules": 0,
+      "source_sha256": "1dcfbf4834533d757e3fc85cec2a79bd033bcf2746d32c0efd10db5502ebd3ce",
+      "file": "09-github-copilot.list",
+      "policy": "📘 GitHub",
+      "sha256": "69fb26db129560b36d4278d5b1ee1f23d68e4eae5306e92fce372592c6b44ba9"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml",
+      "format": "clash-classic",
+      "count": 31,
+      "removed_process_rules": 0,
+      "source_sha256": "a2641ce2f10857831b600623f97d354e6f8db7b20dff175c5313c2c46e0b6867",
+      "file": "10-GitHub.list",
+      "policy": "📘 GitHub",
+      "sha256": "a94b5d4be749171498c90dfbdf8e12dfe85982cd3218a7fe5057dfb44c84f483"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/AIOverrides.yaml",
+      "format": "clash-classic",
+      "count": 3,
+      "removed_process_rules": 0,
+      "source_sha256": "80b61e2d3bdc494da86a497a811d48896bf6845f085bac9ab64c2118782c33f7",
+      "file": "11-AIOverrides.list",
+      "policy": "✨ 其他 AI",
+      "sha256": "863680ea9ecbe9f50681399f9e876ccd516804818d8d5a31371b041342ff911b"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/AppleCDN.yaml",
+      "format": "clash-classic",
+      "count": 6,
+      "removed_process_rules": 0,
+      "source_sha256": "5f798f1be7e74362573713a90d6e757437cf30e1d4b0c4f7c3e9ee1f50fdd36a",
+      "file": "12-AppleCDN.list",
+      "policy": "🍎 Apple",
+      "sha256": "7d4ea8a5bc3fad6d9562d62a3723f215df08dbefe6007c196481716672cc8157"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/GoogleCDN.yaml",
+      "format": "clash-classic",
+      "count": 8,
+      "removed_process_rules": 0,
+      "source_sha256": "886d4d5c9a6a85446af3a2d436bff5b60efa78bab491de0d9cc323a5591afbba",
+      "file": "13-GoogleCDN.list",
+      "policy": "🔎 Google",
+      "sha256": "2ba7aa60c3fd3cdca3d6e6532d565eb196c5c35ac07d7c511de75400aac76b60"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml",
+      "format": "clash-classic",
+      "count": 31,
+      "removed_process_rules": 1,
+      "source_sha256": "c93113e0f7d84302868ae8a1a7bfd024dbc03e54c5953f5439d20ca9c04005b7",
+      "file": "14-TikTok.list",
+      "policy": "👯‍♂️ TikTok",
+      "sha256": "dc0e4d45dee5cf621dddaf79478a7888b6b4261adc73ce5f6c3cd0d65332bfff"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml",
+      "format": "clash-classic",
+      "count": 40,
+      "removed_process_rules": 6,
+      "source_sha256": "996651175d82cdc34e07c2429d5737ddbe15a5ed83e54dbaf84727a6f5927f92",
+      "file": "15-Telegram_No_Resolve.list",
+      "policy": "🙋 Telegram",
+      "sha256": "12e58b4f4f9fa68b83385b5b0b97cfda091196aaad0faf987604e07f18d666ab"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter_No_Resolve.yaml",
+      "format": "clash-classic",
+      "count": 33,
+      "removed_process_rules": 0,
+      "source_sha256": "512413d6f39d1331b75323ba7f4042e6028fd4014c35deb6abca343bd3aa1714",
+      "file": "16-Twitter_No_Resolve.list",
+      "policy": "🕊️ Twitter(X)",
+      "sha256": "e5da92d22b97a44f2fbd4177a32ca8561a0f75e6329acb1e1074598690e85423"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook_No_Resolve.yaml",
+      "format": "clash-classic",
+      "count": 570,
+      "removed_process_rules": 0,
+      "source_sha256": "6852524d17757244f92ba31d035c13248d8640642a9b87cd0b7aaf22ac0fc9ab",
+      "file": "17-Facebook_No_Resolve.list",
+      "policy": "🗣️ Facebook",
+      "sha256": "baabf45e8cd09602d5381b30bbef958b035378f7b445522b1b60eb1c2ef0d5b3"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PayPal/PayPal.yaml",
+      "format": "clash-classic",
+      "count": 247,
+      "removed_process_rules": 0,
+      "source_sha256": "66c75e9ecff301097919cccb27a675251158e8d85e09c6c926995b465cab8a59",
+      "file": "18-PayPal.list",
+      "policy": "💳 PayPal",
+      "sha256": "7b652c18dc2b5a75e98eb9cafda1ad332db4054adfad278b5f05b87366733455"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube_No_Resolve.yaml",
+      "format": "clash-classic",
+      "count": 183,
+      "removed_process_rules": 0,
+      "source_sha256": "7deacecc20077a39dc052d097806bfb8f89dc60970c02bfda3803edaedddaa55",
+      "file": "19-YouTube_No_Resolve.list",
+      "policy": "🎞️ YouTube",
+      "sha256": "b17bbbd0addf5bd62a306831451b73cf3d25d2eed2f4f0a9663e593e22ec636f"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/DisneyExtra.yaml",
+      "format": "clash-classic",
+      "count": 4,
+      "removed_process_rules": 0,
+      "source_sha256": "37227e0e51d916dfcdfb8c49365eba1f6bf4e9e8c63a855d455426d9b3db5ad8",
+      "file": "20-DisneyExtra.list",
+      "policy": "📺 Disney",
+      "sha256": "fa5213b2d8febcc0e6d384cccf38647d8f3062751dfaae2028817cb74a096d9f"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/disney.yaml",
+      "format": "clash-domain",
+      "count": 224,
+      "removed_process_rules": 0,
+      "source_sha256": "10cceb54944b6a379fa1645a58f925a2f6b80ae8444d01e327ed77d48774c4e6",
+      "file": "21-disney.list",
+      "policy": "📺 Disney",
+      "sha256": "6f7a950ddcc131f507423711d6acc7570b5d3237dd24f2984a657119d8286261"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/NetflixExtra.yaml",
+      "format": "clash-classic",
+      "count": 4,
+      "removed_process_rules": 0,
+      "source_sha256": "8d9808538b78cd8f1c9f7d9dd5b5870e17df0e3f43f6191c9df3a92c4793f92b",
+      "file": "22-NetflixExtra.list",
+      "policy": "🎥 Netflix",
+      "sha256": "45ced973cc45b0fe3ebc74e70d62bf01aca83aabf41b67096ff41dcdabc33174"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.yaml",
+      "format": "clash-domain",
+      "count": 24,
+      "removed_process_rules": 0,
+      "source_sha256": "4cf3bf6f2b28d578894d767415bbca0cc8ff4bf326b1ad8fffd59dba41da016f",
+      "file": "23-netflix.list",
+      "policy": "🎥 Netflix",
+      "sha256": "e33d53d31e17a7209f2a16c1ddb73aca9ac20464a214390adf39219566469be7"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/HBOExtra.yaml",
+      "format": "clash-classic",
+      "count": 19,
+      "removed_process_rules": 0,
+      "source_sha256": "06f31cd0826a704067eb04f25d1728a90f4b02cc55df377f9e51a919ac19d75c",
+      "file": "24-HBOExtra.list",
+      "policy": "🎬 HBO",
+      "sha256": "868300280966f2eb75c52a7327df675288b37c874dd2f1cc85081734228a83da"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/hbo.yaml",
+      "format": "clash-domain",
+      "count": 65,
+      "removed_process_rules": 0,
+      "source_sha256": "cbc98f5511023616dd4d169012978b9dd13d218b7cae0eae85ab0f5266a47ff1",
+      "file": "25-hbo.list",
+      "policy": "🎬 HBO",
+      "sha256": "8906039b1794f37ca86fc52df35fbbdbef58a84a043a7f2a3c05c0735e23e60d"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify_No_Resolve.yaml",
+      "format": "clash-classic",
+      "count": 29,
+      "removed_process_rules": 1,
+      "source_sha256": "9920067498caca6a3fa39914f8b48618a94ae4ef3149ec071879e59bb553e40d",
+      "file": "26-Spotify_No_Resolve.list",
+      "policy": "🎵 Spotify",
+      "sha256": "ae039ff03bbf24b218e2ec1b15e49c1ea15ff2d038b18b466704820f6cc80652"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.yaml",
+      "format": "clash-domain",
+      "count": 46,
+      "removed_process_rules": 0,
+      "source_sha256": "05c8be16f78afcba288a318dff806b93d488d33c9b4b948e5d9e7e9bef4b5e76",
+      "file": "27-google-gemini.list",
+      "policy": "🔎 Google",
+      "sha256": "5403e80e8b92b75ca56288bcf1ff3f5f4817c6e344e90ca57e71560d6e98021e"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google_No_Resolve.yaml",
+      "format": "clash-classic",
+      "count": 695,
+      "removed_process_rules": 6,
+      "source_sha256": "1fb60a769273a36363b277c0083df87f16385bf98087fe1c6625e8b8bf9ebfb9",
+      "file": "28-Google_No_Resolve.list",
+      "policy": "🔎 Google",
+      "sha256": "cba5e58bc3b662a2b9149443360ec0fd6035e10589b832d7d5f034ce106b295d"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/MicrosoftLogin.yaml",
+      "format": "clash-classic",
+      "count": 23,
+      "removed_process_rules": 0,
+      "source_sha256": "e8f54c87e4c4502b88178aeaa4889f505e18f2cc1f45f9d6385406045e3ca044",
+      "file": "29-MicrosoftLogin.list",
+      "policy": "🔑 微软登录",
+      "sha256": "9000f1e35d41d0100c32a8446df73fabd6e0c142f797397c648e17cbeb25e844"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/OneDrive.yaml",
+      "format": "clash-classic",
+      "count": 27,
+      "removed_process_rules": 0,
+      "source_sha256": "b8e8fb72a299d6dd8738fd81eaa493ce4ab4b20a20cc67ce1dd0849c6fa0f1e8",
+      "file": "30-OneDrive.list",
+      "policy": "☁️ OneDrive",
+      "sha256": "3a0cbb17cd8e6f90730ea3728db3551afb38f300fb8d93d9da7ad451102876a2"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.yaml",
+      "format": "clash-classic",
+      "count": 16,
+      "removed_process_rules": 2,
+      "source_sha256": "6f5902a52d1a0f48b69f7ebe021c4f14361e2c3f5426388923f2034740e60991",
+      "file": "31-OneDrive.list",
+      "policy": "☁️ OneDrive",
+      "sha256": "04583589732ac80318168e1aad0814f035a4aa0fc73202f3c1d86406aa94e0f8"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bing.yaml",
+      "format": "clash-domain",
+      "count": 40,
+      "removed_process_rules": 0,
+      "source_sha256": "76e566bc13d276792ece9005cf4f4dd450c1ba892752980ac37c7e78773c30ab",
+      "file": "32-bing.list",
+      "policy": "Ⓜ️ Microsoft",
+      "sha256": "44ec426f539b80d562a409afcd8dbe2d1154433828828a2a2bc99d30b7d91889"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/MicrosoftServices.yaml",
+      "format": "clash-classic",
+      "count": 664,
+      "removed_process_rules": 2,
+      "source_sha256": "86ab3e4722bffb5d961aa2fde82e9b267598ac4b6df1845f6bd6e46b5aa4d46a",
+      "file": "33-MicrosoftServices.list",
+      "policy": "Ⓜ️ Microsoft",
+      "sha256": "e135d8cc42c90be4f267a759b2a686b388c0a29b6af7ef4df5a2de768eb8032c"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/OtherAI.yaml",
+      "format": "clash-classic",
+      "count": 184,
+      "removed_process_rules": 0,
+      "source_sha256": "6e311058e52111845bd6249724fa9f221f3921cb701c13dda1673e92448f6c0a",
+      "file": "34-OtherAI.list",
+      "policy": "✨ 其他 AI",
+      "sha256": "1cc0ab7fa800fc27b8ecb92b9762fe50589a8dd54f2175a138e33beeab8409df"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
+      "format": "clash-classic",
+      "count": 1579,
+      "removed_process_rules": 13,
+      "source_sha256": "c7cabcffce49de13b85b9f351bc3ca205d6a9954a29be27302c5d7e72c62ab9e",
+      "file": "35-AppleServices.list",
+      "policy": "🍎 Apple",
+      "sha256": "739f5958ac1cfdec373ab82f054c946bbd4185e698ac0486789d8d488fbf069d"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml",
+      "format": "clash-classic",
+      "count": 17,
+      "removed_process_rules": 0,
+      "source_sha256": "9001a292467843777e7b97b7a78224da8a259f5e6fcb5d36e4413c28296875e4",
+      "file": "36-SteamCN.list",
+      "policy": "➡️ 国内",
+      "sha256": "6be568d77677e81c0ea19a92fbe1898cc9522f1208fa24bb5f8f5f89908ba1b8"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml",
+      "format": "clash-classic",
+      "count": 54,
+      "removed_process_rules": 0,
+      "source_sha256": "585e423c866bb020421a79dd2842f279b56ef94bf487fbee13354796958dcad6",
+      "file": "37-Steam.list",
+      "policy": "🎮 Steam",
+      "sha256": "92f6a04c8871491faa6f0293ecea9e38f31f115a96297346665621b03d0bf99d"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.yaml",
+      "format": "clash-classic",
+      "count": 15,
+      "removed_process_rules": 0,
+      "source_sha256": "b60fdc6980e4ec4496b8d6cffce8c2270c5d5d5dfe9688538160593444fbd189",
+      "file": "38-Epic.list",
+      "policy": "🕹️ Game",
+      "sha256": "efa0fb4f1ae00573bd6a34aedf346889bb3195c0feb83c8deb3943f33a04ba7f"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EA/EA.yaml",
+      "format": "clash-classic",
+      "count": 165,
+      "removed_process_rules": 0,
+      "source_sha256": "cedbe3d2b1a86afbf3fe7153f8ed78575e2cefe1192bf054fc1e2747e717ee3b",
+      "file": "39-EA.list",
+      "policy": "🕹️ Game",
+      "sha256": "37c73fccc19f43056bf5a24f35a4b7635ccef30669be1ca9c20ba8235e712016"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Blizzard/Blizzard_No_Resolve.yaml",
+      "format": "clash-classic",
+      "count": 62,
+      "removed_process_rules": 0,
+      "source_sha256": "bc690507faf26980f28892a8f6f8ed4ef4a1bcbc36c0cc6c50ff458eeeaf9931",
+      "file": "40-Blizzard_No_Resolve.list",
+      "policy": "🕹️ Game",
+      "sha256": "a1f860dcfcccad18514e0940b9753ce90e1154e0dc41b77669b8f90f54464a5e"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/UBI/UBI.yaml",
+      "format": "clash-classic",
+      "count": 5,
+      "removed_process_rules": 0,
+      "source_sha256": "15ab4c3d52f68e0173651bfbf5be568c0fae073d32cafcf4bcc5f874fb1355dc",
+      "file": "41-UBI.list",
+      "policy": "🕹️ Game",
+      "sha256": "6102b02554d480d19cf1a295a37172ffdbcbdbba6fab753e889b2fb79ae62d71"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Sony/Sony.yaml",
+      "format": "clash-classic",
+      "count": 116,
+      "removed_process_rules": 0,
+      "source_sha256": "2ba664229ac5bd40edf2b99fd0cfbac2ee8d757bb5700c0cd638cfc0fdef057a",
+      "file": "42-Sony.list",
+      "policy": "🕹️ Game",
+      "sha256": "a6f979241ca4657f164ef5d1c47ae27d1812973f3a766e956427f73934c3f7a0"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo_No_Resolve.yaml",
+      "format": "clash-classic",
+      "count": 126,
+      "removed_process_rules": 0,
+      "source_sha256": "80183aee2b4ffadcf36c6bd92ec1a098111955fefc8df37f6ae7a2437fee7b2c",
+      "file": "43-Nintendo_No_Resolve.list",
+      "policy": "🕹️ Game",
+      "sha256": "676d33e1db13200c07cd08d5002ea841c5a42f1f6338b035675a2cd83981bf6c"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.yaml",
+      "format": "clash-ipcidr",
+      "count": 122,
+      "removed_process_rules": 0,
+      "source_sha256": "409cee1a04e691b033057429b3ecf2d3fb306ef199ec98316cbd5b4eab500084",
+      "file": "44-netflix.list",
+      "policy": "🎥 Netflix",
+      "sha256": "ac0848c4fc62cae0aedc80aac5ad98965c8d24aecb13f6be803f83fbe054d3f3"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AmazonServices.yaml",
+      "format": "clash-classic",
+      "count": 181,
+      "removed_process_rules": 1,
+      "source_sha256": "c82fedfd5fe7e08e20d5eba36fdc6cb1f741a419fa8dca4f88a04fad46f4a669",
+      "file": "45-AmazonServices.list",
+      "policy": "🌳 Amazon",
+      "sha256": "81015d0feb0492639b0fca2c824bbb7fd3b368ccaa36b725300b5d47e64977e9"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Amazon/Amazon_No_Resolve.yaml",
+      "format": "clash-classic",
+      "count": 202,
+      "removed_process_rules": 1,
+      "source_sha256": "296df2390b66dbbd9af9a349252fc8ecd81f58492b9ed96caa20b0653c7e9ef8",
+      "file": "46-Amazon_No_Resolve.list",
+      "policy": "🌍 国外",
+      "sha256": "3017e05d18d39749658bf26f4df7c7e07eb098109f8554c6be1b57327125d423"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/BiliBili/BiliBili.list",
+      "format": "native",
+      "count": 127,
+      "removed_process_rules": 0,
+      "source_sha256": "9b22a7bdf97792346bf480771841b6cd1097ec7ad034b34528c14f3798107854",
+      "file": "47-BiliBili.list",
+      "policy": "📺 哔哩哔哩",
+      "sha256": "0cba05299c6c40f20337ee9f096590553b007a7b2cf530d7e20204aaa2c95707"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/NetEaseMusic/NetEaseMusic.list",
+      "format": "native",
+      "count": 30,
+      "removed_process_rules": 0,
+      "source_sha256": "da8638a8414224a63dd29d7b45446956ed98c67f88d3b530c80b6c978191fc09",
+      "file": "48-NetEaseMusic.list",
+      "policy": "DIRECT",
+      "sha256": "906996fcedcc5d22f112d649ee03860c58affbfe986d54bec3f75e1718694a8a"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Baidu/Baidu.list",
+      "format": "native",
+      "count": 251,
+      "removed_process_rules": 0,
+      "source_sha256": "ac49361bba37ccd12f46dff78885ef07218d9dc9deb254d71d1c0431a7eb921a",
+      "file": "49-Baidu.list",
+      "policy": "DIRECT",
+      "sha256": "811cbe8b6a219d3231f01704ee132cb907ccb59e8f9ed0b27dfe3827781351a4"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouBan/DouBan.list",
+      "format": "native",
+      "count": 3,
+      "removed_process_rules": 0,
+      "source_sha256": "49b368896f4e38f4a31ac911b8e13fee923575884afe0d27a3cb1a0735551742",
+      "file": "50-DouBan.list",
+      "policy": "DIRECT",
+      "sha256": "382bc69c6e7fce1928d9bd29d756f5dcf4fab680c61159135dff241d86a272e1"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/WeChat/WeChat.list",
+      "format": "native",
+      "count": 33,
+      "removed_process_rules": 0,
+      "source_sha256": "c48cebb11ccc41a56a22560b83c64bf0efdf9c598128da3771f36fe591a0924e",
+      "file": "51-WeChat.list",
+      "policy": "DIRECT",
+      "sha256": "a7b8e4714d24e7c0e1fc646181450e3aecb7ef76d1b69d0b272bd1f5355882d0"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouYin/DouYin.list",
+      "format": "native",
+      "count": 13,
+      "removed_process_rules": 0,
+      "source_sha256": "020e742fe4a7084268af6aa52c4153bf5bfd54c4d7a17466f42cd3461609e32a",
+      "file": "52-DouYin.list",
+      "policy": "DIRECT",
+      "sha256": "21b2936c78fafce86d58669d635466afc39edb953971bd95e958b2f1147abe56"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sina/Sina.list",
+      "format": "native",
+      "count": 108,
+      "removed_process_rules": 0,
+      "source_sha256": "223182b8b06af7838174f94839e1e799b39a9e283b66b0e1a71108539d7c2829",
+      "file": "53-Sina.list",
+      "policy": "DIRECT",
+      "sha256": "aa8ae9479f966408618f2d5cefc4541988de68eb258b04aaf8fd934719e95144"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Zhihu/Zhihu.list",
+      "format": "native",
+      "count": 7,
+      "removed_process_rules": 0,
+      "source_sha256": "450c53b3762b1aa2f63631f8d07c7237338c8c691aeb475ed07583cfea9d5e33",
+      "file": "54-Zhihu.list",
+      "policy": "DIRECT",
+      "sha256": "2cd4feceaa477f1196ef45cdb6ce64db732cc9509232958b1ea26ee6b3d0e845"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/XiaoHongShu/XiaoHongShu.list",
+      "format": "native",
+      "count": 4,
+      "removed_process_rules": 0,
+      "source_sha256": "9fb20e80dc0962cfdf410ffbd72d6bf2a6a0ac0d930951880f98164ff229e8ff",
+      "file": "55-XiaoHongShu.list",
+      "policy": "DIRECT",
+      "sha256": "b0e2a9212f547e54b54287d04c736be38c11469d2be2ade2ce552166728d20c1"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/China/China.list",
+      "format": "native",
+      "count": 63,
+      "removed_process_rules": 0,
+      "source_sha256": "65477cd1e2917a8ca09ba08132e9d9131c54c0d9e1cfcba0be2eaa8ea1a04b75",
+      "file": "56-China.list",
+      "policy": "DIRECT",
+      "sha256": "101e741bbaea017cc7fa0a6ccc48748e34cfc695e4db7490ee6fdc89efa35c65"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/China/China_Domain.list",
+      "format": "native-domain",
+      "count": 3689,
+      "removed_process_rules": 0,
+      "source_sha256": "d35eec789ae09a6d2b6dd48ed2c52d6d811f433b1e73a92b2f9246b778fa7923",
+      "file": "57-China_Domain.list",
+      "policy": "DIRECT",
+      "sha256": "1cb315a2efb2cd16b9adfc3a93b08d6a09d200d94a64fb3593a435ad4c47e400"
+    },
+    {
+      "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical_No_Resolve.yaml",
+      "format": "clash-classic",
+      "count": 35066,
+      "removed_process_rules": 1,
+      "source_sha256": "4ca46186cedb6fe55e9d3a3ad8ddd6d61129593787ea73582f0c1ae816dc57a8",
+      "file": "58-Global_Classical_No_Resolve.list",
+      "policy": "🌍 国外",
+      "sha256": "04a8fd6a76116b9457e91f4733128f19f8834fdbfebc7c62954a637800cc6f0e"
+    },
+    {
+      "file": "retained-BanProgramAD.list",
+      "policy": "REJECT",
+      "source": "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list",
+      "format": "native",
+      "count": 1016,
+      "original_binding": true,
+      "source_sha256": "35cefd7a4c01d2efa9b4c7928e21caa348f78a3f60b46d7d850f1e3334a5a766",
+      "sha256": "e8983d348f9c1ccc1b71903411369c86f35e54820d9064b81b2885abc7588307"
+    },
+    {
+      "file": "retained-BanAD.list",
+      "policy": "REJECT",
+      "source": "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list",
+      "format": "native",
+      "count": 588,
+      "original_binding": true,
+      "source_sha256": "27a5f6d018d428409d8da5d9f390a46298d505ae4941bb8172f052055abe7262",
+      "sha256": "557a56fc203ce10942ba6c8bf3ecfc81bde542a72b3930303affc808847d0f74"
+    }
+  ],
+  "node_credentials": false,
+  "source_policy": "OpenClash maintained sources converted to Shadowrocket; original useful domestic lists retained",
+  "first_rules": [
+    "DOMAIN-SUFFIX,iqos.com,日本节点",
+    "IP-CIDR,192.168.100.0/24,HOME,no-resolve",
+    "RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list,REJECT",
+    "RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list,REJECT"
+  ]
+}

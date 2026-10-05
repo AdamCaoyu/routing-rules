@@ -1,0 +1,5 @@
+# Converted for Shadowrocket; Source: https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/NetflixExtra.yaml
+DOMAIN,e13252.dscg.akamaiedge.net
+DOMAIN,h-netflix.online-metrix.net
+DOMAIN-SUFFIX,netflix.com.au
+DOMAIN-SUFFIX,netflixstudios.com

@@ -1,0 +1,24 @@
+# Converted for Shadowrocket; Source: https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/MicrosoftLogin.yaml
+DOMAIN,login.live.com
+DOMAIN,account.live.com
+DOMAIN,oauth.live.com
+DOMAIN,signup.live.com
+DOMAIN,login.microsoftonline.com
+DOMAIN,login.microsoft.com
+DOMAIN,login.windows.net
+DOMAIN,auth.gfx.ms
+DOMAIN,logincert.microsoftonline.com
+DOMAIN,loginex.microsoftonline.com
+DOMAIN,login.microsoftonline-p.com
+DOMAIN,login-us.microsoftonline.com
+DOMAIN,graph.microsoft.com
+DOMAIN,graph.windows.net
+DOMAIN,posarprodcssservice.accesscontrol.windows.net
+DOMAIN,redemptionservices.accesscontrol.windows.net
+DOMAIN,token.cp.microsoft.com
+DOMAIN-SUFFIX,msauth.net
+DOMAIN-SUFFIX,msauthimages.net
+DOMAIN-SUFFIX,msftauth.net
+DOMAIN-SUFFIX,msftauthimages.net
+DOMAIN-SUFFIX,hip.live.com
+DOMAIN-SUFFIX,auth.microsoft.com

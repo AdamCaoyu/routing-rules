@@ -1,0 +1,6 @@
+# Converted for Shadowrocket; Source: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/xai.yaml
+# Attribution: MetaCubeX/meta-rules-dat; GPL-3.0, see repository licenses.
+DOMAIN-SUFFIX,grok.com
+DOMAIN-SUFFIX,grokipedia.com
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,grok.x.com
