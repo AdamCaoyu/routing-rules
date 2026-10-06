@@ -87,6 +87,15 @@ def source_payload(source):
                   'source_sha256': hashlib.sha256(data.encode()).hexdigest()}
 
 
+def region_group_lines(regions):
+    lines = []
+    for region, pattern in regions.items():
+        lines.append(region + '节点 = select,' + region + '-自动,' + region + '-手动,policy-select-name=' + region + '-自动')
+        lines.append(region + '-自动 = url-test,REJECT,policy-regex-filter=' + pattern + ',url=http://www.gstatic.com/generate_204,interval=600,tolerance=100,timeout=5')
+        lines.append(region + '-手动 = select,policy-regex-filter=' + pattern)
+    return lines
+
+
 def group_lines():
     regions = {name: pattern.replace("[A-Za-z]{2,3}", "[A-Za-z]{2}[A-Za-z]?")
                for name, pattern in region_patterns().items()}
@@ -97,8 +106,7 @@ def group_lines():
         members = list(dict.fromkeys([default, *service['extra'], *choices]))
         lines.append(service['name'] + ' = select,' + ','.join(members) + ',policy-select-name=' + default)
     lines.append('所有-手动 = select,PROXY,REJECT,policy-regex-filter=' + eligible_pattern() + ',policy-select-name=PROXY')
-    for region, pattern in regions.items():
-        lines.append(region + '节点 = select,policy-regex-filter=' + pattern)
+    lines.extend(region_group_lines(regions))
     return lines
 
 

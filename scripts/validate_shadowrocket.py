@@ -47,8 +47,11 @@ def validate():
     for name, fields in groups.items():
         refs[name] = [f for f in fields[1:] if '=' not in f]
         assert all(r in groups or r in builtins for r in refs[name]), (name, refs[name])
-        assert fields[0] == 'select', name
-        assert '-自动' not in name, name
+        if name.endswith('-自动'):
+            assert name[:-3] in region_patterns(), name
+            assert fields[0] == 'url-test' and 'interval=600' in fields and 'tolerance=100' in fields
+        else:
+            assert fields[0] == 'select', name
     for service in services():
         fields = groups[service['name']]
         assert fields[0] == 'select'
@@ -56,8 +59,12 @@ def validate():
         assert 'policy-select-name=' + default in fields
         assert default in refs[service['name']]
     for region, pattern in region_patterns().items():
-        assert 'policy-regex-filter=' + pattern.replace('[A-Za-z]{2,3}', '[A-Za-z]{2}[A-Za-z]?') in groups[region + '节点']
-        assert not refs[region + '节点']
+        assert refs[region + '节点'] == [region + '-自动', region + '-手动']
+        assert 'policy-select-name=' + region + '-自动' in groups[region + '节点']
+        for suffix in ['-自动', '-手动']:
+            assert 'policy-regex-filter=' + pattern.replace('[A-Za-z]{2,3}', '[A-Za-z]{2}[A-Za-z]?') in groups[region + suffix]
+        assert groups[region + '-手动'][0] == 'select'
+        assert not refs[region + '-手动']
     assert '所有-自动' not in groups
     assert 'policy-select-name=PROXY' in groups['所有-手动']
     def walk(name, stack):
@@ -154,8 +161,11 @@ def validate():
         fields = line.split(',')
         target = fields[1] if fields[0] == 'FINAL' else fields[2]
         assert target in test_groups | builtins, target
-    assert all(line.split('=', 1)[1].strip().startswith('select,') for line in active(test['Proxy Group']))
-    assert not any(key in test['Proxy Group'] for key in ['interval=', 'url=', 'timeout=', 'tolerance='])
+    for line in active(test['Proxy Group']):
+        name, body = [value.strip() for value in line.split('=', 1)]
+        assert body.startswith('url-test,' if name.endswith('-自动') else 'select,')
+        if not name.endswith('-自动'):
+            assert not any(key in body for key in ['interval=', 'url=', 'timeout=', 'tolerance='])
     assert all(line.endswith(' 302') for line in active(test['URL Rewrite']))
     report = {'status': 'static checks passed', 'groups': len(groups), 'providers': len(manifest),
               'expanded_rules': len(expanded), 'domain_checks': len(cases) + 10,

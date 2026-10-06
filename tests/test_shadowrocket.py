@@ -13,13 +13,21 @@ import validate_shadowrocket as check
 class ShadowrocketTests(unittest.TestCase):
     def test_published_configuration_routes_and_boundaries(self):
         report = check.validate()
-        self.assertEqual(report['groups'], 37)
+        self.assertEqual(report['groups'], 51)
         self.assertEqual(report['status'], 'static checks passed')
 
-    def test_no_automatic_groups_or_references(self):
-        lines = build.group_lines()
-        self.assertFalse(any('自动' in line or 'url-test' in line or 'interval=' in line for line in lines))
-        self.assertTrue(any(line.startswith('所有-手动 = select,PROXY,') for line in lines))
+    def test_region_auto_and_fixed_manual_choices(self):
+        groups = {line.split(' = ', 1)[0]: line.split(' = ', 1)[1]
+                  for line in build.group_lines()}
+        self.assertNotIn('所有-自动', groups)
+        self.assertTrue(groups['所有-手动'].startswith('select,PROXY,'))
+        for region in build.region_patterns():
+            picker = groups[region + '节点'].split(',')
+            self.assertEqual(picker[:3], ['select', region + '-自动', region + '-手动'])
+            self.assertIn('policy-select-name=' + region + '-自动', picker)
+            self.assertTrue(groups[region + '-自动'].startswith('url-test,'))
+            self.assertTrue(groups[region + '-手动'].startswith('select,'))
+            self.assertNotIn('interval=', groups[region + '-手动'])
 
     def test_native_source_policy_is_not_embedded(self):
         self.assertEqual(build.normalized('DOMAIN-SUFFIX,example.com,PROXY', 'native'),
@@ -36,9 +44,9 @@ class ShadowrocketTests(unittest.TestCase):
         patterns = {}
         for line in lines:
             name, body = line.split(' = ', 1)
-            if name.endswith('节点'):
+            if name.endswith('-手动') and name != '所有-手动':
                 field = next(p for p in body.split(',') if p.startswith('policy-regex-filter='))
-                patterns[name] = field.split('=', 1)[1]
+                patterns[name[:-3] + '节点'] = field.split('=', 1)[1]
         for node, region in [('US🔛TW台北', '台湾节点'), ('HK🔛US王者', '美国节点'),
                              ('US🔛HK🔛TW台北', '台湾节点'), ('香港 维护', '香港节点'),
                              ('US 下载专用', '美国节点'), ('RUS Test', None)]:
