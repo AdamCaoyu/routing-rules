@@ -2,8 +2,8 @@
 
 ## 选择文件
 
-- `caoyu-shadowrocket.conf`：推荐优化版。51 个分组，服务选择与 OpenClash 对齐，61 个来源转换为 Shadowrocket 原生规则格式。
-- `lazy_group-AppleAI-test.conf`：原配置的最小测试版，保留原服务分组与规则源，新增 Apple Intelligence 分组和七条后缀规则，地区组增加自动与手动切换；公开版删除 MITM 证书、关闭 MITM，并校正规则目标的大小写。原来的混合格式等问题仍保留，适合对照测试，不推荐长期使用。
+- `caoyu-shadowrocket.conf`：推荐优化版。44 个分组（7 个自动辅助组隐藏，通常显示 37 个），服务选择与 OpenClash 对齐，61 个来源转换为 Shadowrocket 原生规则格式。
+- `lazy_group-AppleAI-test.conf`：原配置的最小测试版，保留原服务分组与规则源，新增 Apple Intelligence 分组和七条后缀规则，地区组支持默认自动及直接点选固定节点；公开版删除 MITM 证书、关闭 MITM，并校正规则目标的大小写。原来的混合格式等问题仍保留，适合对照测试，不推荐长期使用。
 - `rules/`：优化版引用的规则列表。`sources.json` 记录来源、格式、规则数量和校验值；`validation.json` 记录静态验证结果。
 - `对比分析.md`：旧小火箭与 OpenClash 的差异、优化选择及测试边界。
 
@@ -15,7 +15,7 @@
 
 `https://raw.githubusercontent.com/AdamCaoyu/routing-rules/main/shadowrocket/lazy_group-AppleAI-test.conf`
 
-在 Shadowrocket 的配置页面通过 URL 下载，选中配置，确认使用配置模式并重新连接。节点继续使用首页已有订阅，不需要转换订阅。Apple Intelligence 默认跟随 ChatGPT，可独立改选地区；地区节点提供地区自动与地区手动两个选项，默认自动。选择地区手动后，再进入该组指定固定节点。跨地区所有自动不恢复。所有手动默认选择 PROXY，跟随首页当前节点，也可在该组内手选节点。
+在 Shadowrocket 的配置页面通过 URL 下载，选中配置，确认使用配置模式并重新连接。节点继续使用首页已有订阅，不需要转换订阅。Apple Intelligence 默认跟随 ChatGPT，可独立改选地区；每个地区只有一个可见入口，默认使用地区自动。具体节点直接列在该地区组内，点选后固定；切回地区自动即可恢复。地区自动辅助组 hidden=1，独立地区手动辅助组已删除。跨地区所有自动不恢复。所有手动默认选择 PROXY，跟随首页当前节点，也可在该组内手选节点。
 
 ## 两份配置共同保留的前四条
 
@@ -34,7 +34,7 @@ RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.li
 
 ## 苹果设备设置
 
-保留原配置的系统联网绕过、国内 DoH、系统备用 DNS、IPv6 开启且不优先 IPv6、HOME 包含路由及不支持 UDP 时 REJECT 的行为。地区自动组每 600 秒测速，公差 100 毫秒；选择低延迟可用节点，避免因微小波动反复切换。地区手动组不测速、不自动切换。OpenClash 的自动组和测速参数保持原样。
+保留原配置的系统联网绕过、国内 DoH、系统备用 DNS、IPv6 开启且不优先 IPv6、HOME 包含路由及不支持 UDP 时 REJECT 的行为。地区自动组每 600 秒测速，公差 100 毫秒；选择低延迟可用节点，避免因微小波动反复切换。地区选择组为 select，直接点选具体节点后不按后台测速自动切换。OpenClash 的自动组和测速参数保持原样。
 
 优化版移除全局 `*.apple.com` / `*.icloud.com → system DNS` 的 Host 覆盖，让 Apple Intelligence 和普通 Apple 使用同一套可配置 DNS。关闭 `dns-direct-fallback-proxy`，避免直连 DNS 失败时隐式经代理重试；网络对 DoH 不可达时可能需要调整 DNS。保留系统备用 DNS，不承诺消除全部 DNS 泄漏。
 
@@ -55,3 +55,11 @@ python3 -m unittest discover -s tests -v
 已验证规则格式、源文件哈希、首四条保留、七条及其子域名优先归属、服务分组默认值、循环引用、HOME 先于普通局域网、共享 CDN 边界与地区前缀识别。另外使用 macOS Apple Foundation 正则引擎检查了地区筛选表达式及转发前缀样例。HOME 包含 /24 与排除 /16 的实际 TUN 路由优先级、地区自动/手动组的客户端行为仍需设备确认。未执行 iPad 导入、实际节点连通、iCloud 到达或 Apple Intelligence 功能激活测试；静态验证不是官方 Shadowrocket 解析器验证。
 
 本地的旧草稿已备份到仓库外，然后由这些新文件替换。原用户数据库不公开上传。
+
+## 原生测试按钮与固定节点
+
+原生“测试并选择最快的服务器”开关只在点击测试后选择当前组中的具体节点，不递归测试子分组，也不提供持续定时切换；开关对全部分组共同生效。持续自动选择由隐藏的地区 url-test 组提供。
+
+固定节点：进入地区组，关闭“测试并选择最快的服务器”，直接点选具体节点。若保留该开关开启并再次测试，会重选节点。切回地区自动可以恢复自动选择。不要在隐藏的自动组中手动固定，其后台逻辑仍会切换。
+
+参考：https://github.com/LOWERTOP/Shadowrocket/wiki#代理分组

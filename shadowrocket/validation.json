@@ -1,6 +1,6 @@
 {
   "status": "static checks passed",
-  "groups": 51,
+  "groups": 44,
   "providers": 61,
   "expanded_rules": 47075,
   "domain_checks": 54,

@@ -13,7 +13,7 @@ import validate_shadowrocket as check
 class ShadowrocketTests(unittest.TestCase):
     def test_published_configuration_routes_and_boundaries(self):
         report = check.validate()
-        self.assertEqual(report['groups'], 51)
+        self.assertEqual(report['groups'], 44)
         self.assertEqual(report['status'], 'static checks passed')
 
     def test_region_auto_and_fixed_manual_choices(self):
@@ -23,11 +23,13 @@ class ShadowrocketTests(unittest.TestCase):
         self.assertTrue(groups['所有-手动'].startswith('select,PROXY,'))
         for region in build.region_patterns():
             picker = groups[region + '节点'].split(',')
-            self.assertEqual(picker[:3], ['select', region + '-自动', region + '-手动'])
+            self.assertEqual(picker[:2], ['select', region + '-自动'])
+            self.assertTrue(any(field.startswith('policy-regex-filter=') for field in picker))
+            self.assertNotIn(region + '-手动', groups)
             self.assertIn('policy-select-name=' + region + '-自动', picker)
             self.assertTrue(groups[region + '-自动'].startswith('url-test,'))
-            self.assertTrue(groups[region + '-手动'].startswith('select,'))
-            self.assertNotIn('interval=', groups[region + '-手动'])
+            self.assertIn('hidden=1', groups[region + '-自动'].split(','))
+            self.assertNotIn('interval=', groups[region + '节点'])
 
     def test_native_source_policy_is_not_embedded(self):
         self.assertEqual(build.normalized('DOMAIN-SUFFIX,example.com,PROXY', 'native'),
@@ -44,9 +46,9 @@ class ShadowrocketTests(unittest.TestCase):
         patterns = {}
         for line in lines:
             name, body = line.split(' = ', 1)
-            if name.endswith('-手动') and name != '所有-手动':
+            if name.endswith('节点'):
                 field = next(p for p in body.split(',') if p.startswith('policy-regex-filter='))
-                patterns[name[:-3] + '节点'] = field.split('=', 1)[1]
+                patterns[name] = field.split('=', 1)[1]
         for node, region in [('US🔛TW台北', '台湾节点'), ('HK🔛US王者', '美国节点'),
                              ('US🔛HK🔛TW台北', '台湾节点'), ('香港 维护', '香港节点'),
                              ('US 下载专用', '美国节点'), ('RUS Test', None)]:

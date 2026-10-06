@@ -59,12 +59,14 @@ def validate():
         assert 'policy-select-name=' + default in fields
         assert default in refs[service['name']]
     for region, pattern in region_patterns().items():
-        assert refs[region + '节点'] == [region + '-自动', region + '-手动']
+        assert refs[region + '节点'] == [region + '-自动']
+        assert region + '-手动' not in groups
+        assert 'hidden=1' in groups[region + '-自动']
         assert 'policy-select-name=' + region + '-自动' in groups[region + '节点']
-        for suffix in ['-自动', '-手动']:
+        for suffix in ['-自动', '节点']:
             assert 'policy-regex-filter=' + pattern.replace('[A-Za-z]{2,3}', '[A-Za-z]{2}[A-Za-z]?') in groups[region + suffix]
-        assert groups[region + '-手动'][0] == 'select'
-        assert not refs[region + '-手动']
+        assert groups[region + '节点'][0] == 'select'
+        assert not any(f.startswith('interval=') for f in groups[region + '节点'])
     assert '所有-自动' not in groups
     assert 'policy-select-name=PROXY' in groups['所有-手动']
     def walk(name, stack):
