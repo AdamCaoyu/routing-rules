@@ -13,8 +13,13 @@ import validate_shadowrocket as check
 class ShadowrocketTests(unittest.TestCase):
     def test_published_configuration_routes_and_boundaries(self):
         report = check.validate()
-        self.assertGreaterEqual(report['groups'], 44)
+        self.assertEqual(report['groups'], 37)
         self.assertEqual(report['status'], 'static checks passed')
+
+    def test_no_automatic_groups_or_references(self):
+        lines = build.group_lines()
+        self.assertFalse(any('自动' in line or 'url-test' in line or 'interval=' in line for line in lines))
+        self.assertTrue(any(line.startswith('所有-手动 = select,PROXY,') for line in lines))
 
     def test_native_source_policy_is_not_embedded(self):
         self.assertEqual(build.normalized('DOMAIN-SUFFIX,example.com,PROXY', 'native'),

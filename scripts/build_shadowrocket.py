@@ -90,19 +90,15 @@ def source_payload(source):
 def group_lines():
     regions = {name: pattern.replace("[A-Za-z]{2,3}", "[A-Za-z]{2}[A-Za-z]?")
                for name, pattern in region_patterns().items()}
-    choices = ['DIRECT', '所有-手动', '所有-自动'] + [r + '节点' for r in regions] + ['REJECT']
+    choices = ['DIRECT', '所有-手动'] + [r + '节点' for r in regions] + ['REJECT']
     lines = []
     for service in services() + [{'name': '📺 哔哩哔哩', 'default': 'DIRECT', 'extra': []}]:
-        members = list(dict.fromkeys([service['default'], *service['extra'], *choices]))
-        lines.append(service['name'] + ' = select,' + ','.join(members) + ',policy-select-name=' + service['default'])
-    lines += [
-        '所有-手动 = select,REJECT,policy-regex-filter=' + eligible_pattern(),
-        '所有-自动 = url-test,REJECT,policy-regex-filter=' + eligible_pattern() + ',url=http://www.gstatic.com/generate_204,interval=600,tolerance=100,timeout=5',
-    ]
+        default = '所有-手动' if service['default'] == '所有-自动' else service['default']
+        members = list(dict.fromkeys([default, *service['extra'], *choices]))
+        lines.append(service['name'] + ' = select,' + ','.join(members) + ',policy-select-name=' + default)
+    lines.append('所有-手动 = select,PROXY,REJECT,policy-regex-filter=' + eligible_pattern() + ',policy-select-name=PROXY')
     for region, pattern in regions.items():
-        lines.append(region + '节点 = select,' + region + '-自动,REJECT,policy-regex-filter=' + pattern + ',policy-select-name=' + region + '-自动')
-    for region, pattern in regions.items():
-        lines.append(region + '-自动 = url-test,REJECT,policy-regex-filter=' + pattern + ',url=http://www.gstatic.com/generate_204,interval=600,tolerance=100,timeout=5')
+        lines.append(region + '节点 = select,policy-regex-filter=' + pattern)
     return lines
 
 
