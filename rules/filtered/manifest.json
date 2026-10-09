@@ -51,8 +51,8 @@
     "upstream_count": 188,
     "kept_count": 184,
     "removed": [
-      "DOMAIN-SUFFIX,host.livekit.cloud",
       "DOMAIN-SUFFIX,turn.livekit.cloud",
+      "DOMAIN-SUFFIX,host.livekit.cloud",
       "DOMAIN-SUFFIX,gateway.ai.cloudflare.com",
       "DOMAIN,browser-intake-datadoghq.com"
     ]
