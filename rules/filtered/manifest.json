@@ -48,11 +48,11 @@
   },
   "OtherAI": {
     "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.yaml",
-    "upstream_count": 188,
-    "kept_count": 184,
+    "upstream_count": 189,
+    "kept_count": 185,
     "removed": [
-      "DOMAIN-SUFFIX,turn.livekit.cloud",
       "DOMAIN-SUFFIX,host.livekit.cloud",
+      "DOMAIN-SUFFIX,turn.livekit.cloud",
       "DOMAIN-SUFFIX,gateway.ai.cloudflare.com",
       "DOMAIN,browser-intake-datadoghq.com"
     ]
