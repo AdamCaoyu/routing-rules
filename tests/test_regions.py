@@ -9,6 +9,12 @@ g=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(g)
 
 class RegionTests(unittest.TestCase):
+    def test_automatic_groups_use_https_health_checks(self):
+        rows = [row for row in g.build_groups().splitlines() if '`url-test`' in row]
+        self.assertEqual(len(rows), 8)
+        for row in rows:
+            self.assertEqual(row.split('`')[-2], 'https://www.gstatic.com/generate_204')
+
     def test_name_classification_is_exclusive(self):
         cases={
             'US🔛❻gR.TW台北|AI':'台湾','HK🔛❻gR.US王者':'美国',

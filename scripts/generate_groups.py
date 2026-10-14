@@ -48,13 +48,13 @@ def build_groups():
         rows.append('custom_proxy_group='+service['name']+'`select`'+'`'.join('[]'+r for r in refs))
     rows+=['','; 所有手动可选择全部节点，包括尚未识别地区的节点。',
            'custom_proxy_group=所有-手动`select`'+eligible_pattern()+'`[]REJECT',
-           'custom_proxy_group=所有-自动`url-test`'+eligible_pattern()+'`[]REJECT`http://www.gstatic.com/generate_204`180,5,100',
+           'custom_proxy_group=所有-自动`url-test`'+eligible_pattern()+'`[]REJECT`https://www.gstatic.com/generate_204`180,5,100',
            '', '; 地区选择卡片：默认进入同地区自动测速，也可手动固定节点。']
     for name,pattern in regions.items():
         rows.append('custom_proxy_group='+name+'节点`select`[]'+name+'-自动`'+pattern+'`[]REJECT')
     rows+=['','; 自动测速辅助组。日常在上面的地区节点卡片操作即可。']
     for name,pattern in regions.items():
-        rows.append('custom_proxy_group='+name+'-自动`url-test`'+pattern+'`[]REJECT`http://www.gstatic.com/generate_204`180,5,100')
+        rows.append('custom_proxy_group='+name+'-自动`url-test`'+pattern+'`[]REJECT`https://www.gstatic.com/generate_204`180,5,100')
     return '\n'.join(rows)+'\n'
 
 if __name__=='__main__':
