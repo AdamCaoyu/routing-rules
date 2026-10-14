@@ -345,20 +345,20 @@
       "format": "clash-classic",
       "count": 185,
       "removed_process_rules": 0,
-      "source_sha256": "45fed16fd72f2d62af2eb6f29921ded9020d79b7a0571a9ac641267d6c2e314f",
+      "source_sha256": "e6112f2e33f2c91e5419a7edcb1132af8827283744242a502b91f8cc939544e5",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "8a65ff1e550abe7609d59252cd1dd619f87e807e1e9e7e42ee341cb88aab7d57"
+      "sha256": "3d8cdb18450c8f8cab83ba2876f6f4f7359d9223e459ccd06b54b1bc8c3f3ead"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
       "format": "clash-classic",
       "count": 1579,
       "removed_process_rules": 13,
-      "source_sha256": "adf5c8b1988cb62e591deb265978c04a0deaf10cc6378642539250fb0224d9c2",
+      "source_sha256": "b9f67c9c84e5f4fb74d2a4928e8bc2c283135c36a9d03bc539e9344784a8a1e6",
       "file": "35-AppleServices.list",
       "policy": "🍎 Apple",
-      "sha256": "0001b91deb4884a30bdfcf659e2e78092e0abd7257026cfd5c93c54c7ce0eaee"
+      "sha256": "83637893d2a2134dcea3aeafd641c3d56420b818579ab1f818f66434cd6d3139"
     },
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml",
@@ -405,10 +405,10 @@
       "format": "clash-classic",
       "count": 62,
       "removed_process_rules": 0,
-      "source_sha256": "1351008fa23dca7a4fcb543565839cb286c459d5fffb4caf77aafa9ddf194753",
+      "source_sha256": "318469ba6531cbf153ce330ddf5aade909a8fc2d9ef0ddf30325c08c4b957d93",
       "file": "40-Blizzard_No_Resolve.list",
       "policy": "🕹️ Game",
-      "sha256": "1cf66912afda825b5f4ff5a0201196fb7e21976526c338491759c76d607c03c3"
+      "sha256": "bae47c4909859b21e89b41762d006c918e91a03d40afadbda83b63ba18583ae9"
     },
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/UBI/UBI.yaml",
@@ -583,12 +583,12 @@
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical_No_Resolve.yaml",
       "format": "clash-classic",
-      "count": 35182,
+      "count": 35183,
       "removed_process_rules": 1,
-      "source_sha256": "a97c2a470def7dd61b0336ff8e219c28dc676af57806475f2fc221539c5a0d4d",
+      "source_sha256": "9883d29fef9fb29cb0c076a619f9c9199ce818778bc463cd457e4107c174c898",
       "file": "58-Global_Classical_No_Resolve.list",
       "policy": "🌍 国外",
-      "sha256": "61817c824fde5c054d19f67b0843ba0c957649a300f859f3fa5e6b45139daf8d"
+      "sha256": "1cd829994df5adc233f7906bdad52b92dfe7c95551d3778c668e9fbb0e5278fb"
     },
     {
       "file": "retained-BanProgramAD.list",
