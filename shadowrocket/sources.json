@@ -215,10 +215,10 @@
       "format": "clash-domain",
       "count": 224,
       "removed_process_rules": 0,
-      "source_sha256": "2da23ea7980af64b9506d2b769dd576508381dda1c2ccbc598e41724de4a925c",
+      "source_sha256": "21fee1a588ef81d49cb45714f7efa4d85c05af2b315443f6d55a4fbab6168391",
       "file": "21-disney.list",
       "policy": "📺 Disney",
-      "sha256": "155e4516f78b47e43364273693b4cc2b299f3eb7907d2227dd98d50b65f563e4"
+      "sha256": "85dd41a335de55882de6b07e4c9fbe6f5f82ba6820d1316a2ca087888e42e71a"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/NetflixExtra.yaml",
@@ -343,22 +343,22 @@
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/OtherAI.yaml",
       "format": "clash-classic",
-      "count": 185,
+      "count": 188,
       "removed_process_rules": 0,
-      "source_sha256": "533431dfd1f8e6a9ac9f1a773365720aa527c40d010a3e3617660ccbe36de50b",
+      "source_sha256": "d473d2425f78083d23db705a0de553ba97bc0d576cb10993475a361a1dac4313",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "46e4e574e315c7896c186af0eb94bde5094d033e6dfce3868fdbbf75d544fc83"
+      "sha256": "da7050397ce462c92aea2b3dd640604e24e339ed3b738cd64670765b5c096610"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
       "format": "clash-classic",
       "count": 1579,
       "removed_process_rules": 13,
-      "source_sha256": "7e10b5b9bccee7efddcca978a87646f80c6865287ea983583652ed6b5efab173",
+      "source_sha256": "c7cabcffce49de13b85b9f351bc3ca205d6a9954a29be27302c5d7e72c62ab9e",
       "file": "35-AppleServices.list",
       "policy": "🍎 Apple",
-      "sha256": "30c3007e49947df01c71e0fd30c52bb0dcf801c6dece5f0c4706b056530f0fed"
+      "sha256": "739f5958ac1cfdec373ab82f054c946bbd4185e698ac0486789d8d488fbf069d"
     },
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml",
@@ -405,10 +405,10 @@
       "format": "clash-classic",
       "count": 62,
       "removed_process_rules": 0,
-      "source_sha256": "88cfa9a25d8d45eaa2c83a8b3df7cfe30d830f07fc5bbff6b24f2b56bd0e8fc4",
+      "source_sha256": "792c10a6836a6bd4d87b2443a34325627ff38eae7b45a7f8ec06d58586754ac7",
       "file": "40-Blizzard_No_Resolve.list",
       "policy": "🕹️ Game",
-      "sha256": "1b1d54575fa439e0a92d16c774df6ecc2cccd07529af689a6c0abf4fb9bca1d3"
+      "sha256": "e93c019a2b4704eb93b36b98338eacd8540be5a8e899d4bb2929ebd4a17ffce9"
     },
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/UBI/UBI.yaml",
@@ -583,12 +583,12 @@
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical_No_Resolve.yaml",
       "format": "clash-classic",
-      "count": 35183,
+      "count": 35189,
       "removed_process_rules": 1,
-      "source_sha256": "9883d29fef9fb29cb0c076a619f9c9199ce818778bc463cd457e4107c174c898",
+      "source_sha256": "d40a2498500f1fb26ad0f85325e441e294d80713ae5c782a0d7ece1b2ef018cc",
       "file": "58-Global_Classical_No_Resolve.list",
       "policy": "🌍 国外",
-      "sha256": "1cd829994df5adc233f7906bdad52b92dfe7c95551d3778c668e9fbb0e5278fb"
+      "sha256": "ed20bf4f5ba2903f99ee6d86d3ff954f96c6bbf4cc6d0916ff9ed5e579a913e6"
     },
     {
       "file": "retained-BanProgramAD.list",
