@@ -67,7 +67,9 @@ class RulesTests(unittest.TestCase):
         import yaml
         domains = ['gateway.icloud.com', 'apple-relay.apple.com',
                    'apple-relay.fastly-edge.com', 'apple-relay.cloudflare.com',
-                   'guzzoni.apple.com', 'cp4.cloudflare.com', 'gspe1-ssl.ls.apple.com']
+                   'guzzoni.apple.com', 'cp4.cloudflare.com', 'gspe1-ssl.ls.apple.com',
+                   'smoot.apple.com', 'apple-relay.akamaized.net',
+                   'apple-relay.mask.apple-dns.net', 'api-siri-prod.apple.com']
         rules = entries(ROOT / 'rules/local/Apple.list')
         generated = yaml.safe_load((ROOT / 'rules/clash/Apple.yaml').read_text())['payload']
         self.assertEqual(generated, rules)

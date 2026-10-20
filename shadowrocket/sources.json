@@ -13,12 +13,12 @@
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/Apple.yaml",
       "format": "clash-classic",
-      "count": 9,
+      "count": 11,
       "removed_process_rules": 0,
-      "source_sha256": "bf7d4d997896ac16b3cf17342356d89a05f43f97d6b52c62a334ab9eea9b2e60",
+      "source_sha256": "4a2df9f7703a6aadd21326af507f11e1a189942ca3c2fd5651c3a85f90447ad7",
       "file": "01-Apple.list",
       "policy": "🍏 Apple Intelligence",
-      "sha256": "3ec8fba34ec6676dd639c536cba1a9cb5940ec079237b14322e344c072baead7"
+      "sha256": "6fba9a457e1ae1d3306f386297dd347b1b97aa87de0cf13b1d261b12b69a353c"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/ChatGPT.yaml",

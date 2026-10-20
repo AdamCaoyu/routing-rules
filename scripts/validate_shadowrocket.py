@@ -10,7 +10,9 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'shadowrocket'
 AI = '🍏 Apple Intelligence'
 DOMAINS = ['gateway.icloud.com', 'apple-relay.apple.com', 'apple-relay.fastly-edge.com',
-           'apple-relay.cloudflare.com', 'guzzoni.apple.com', 'cp4.cloudflare.com', 'gspe1-ssl.ls.apple.com']
+           'apple-relay.cloudflare.com', 'guzzoni.apple.com', 'cp4.cloudflare.com', 'gspe1-ssl.ls.apple.com',
+           'smoot.apple.com', 'apple-relay.mask.apple-dns.net',
+           'apple-relay.akamaized.net', 'api-siri-prod.apple.com']
 
 
 def active(text):
@@ -29,7 +31,9 @@ def validate():
     settings = json.loads((ROOT / 'config/shadowrocket.json').read_text())
     rules = active(config['Rule'])
     assert rules[:4] == settings['first_rules'], 'First four rules changed'
-    assert rules[4:11] == ['DOMAIN-SUFFIX,' + d + ',' + AI for d in DOMAINS]
+    ai_rules = active((ROOT / 'rules/local/Apple.list').read_text())
+    ai_end = 4 + len(ai_rules)
+    assert rules[4:ai_end] == [rule + ',' + AI for rule in ai_rules]
     assert rules[-1] == 'FINAL,DIRECT'
     for bad in ['ca-p12', 'ca-passphrase', 'password=', 'private-key', 'BEGIN PRIVATE KEY']:
         assert bad not in text.lower(), bad
@@ -156,7 +160,7 @@ def validate():
         assert actual == expected, (address, actual)
     test = sections((OUT / 'lazy_group-AppleAI-test.conf').read_text())
     test_rules = active(test['Rule'])
-    assert test_rules[:11] == rules[:11]
+    assert test_rules[:ai_end] == rules[:ai_end]
     assert active(test['MITM']) == ['enable = false']
     test_groups = {line.split('=', 1)[0].strip() for line in active(test['Proxy Group'])}
     for line in test_rules:

@@ -148,9 +148,8 @@ def build():
     rules_dir = OUT / 'rules'
     rules_dir.mkdir(exist_ok=True)
     rule_lines = list(settings['first_rules'])
-    ai_domains = ['gateway.icloud.com', 'apple-relay.apple.com', 'apple-relay.fastly-edge.com',
-                  'apple-relay.cloudflare.com', 'guzzoni.apple.com', 'cp4.cloudflare.com', 'gspe1-ssl.ls.apple.com']
-    rule_lines += ['DOMAIN-SUFFIX,' + domain + ',🍏 Apple Intelligence' for domain in ai_domains]
+    ai_rules = active((ROOT / 'rules/local/Apple.list').read_text())
+    rule_lines += [rule + ',🍏 Apple Intelligence' for rule in ai_rules]
     records = []
     files = set()
     for kind, item in bindings:

@@ -3,7 +3,7 @@
 ## 选择文件
 
 - `caoyu-shadowrocket.conf`：推荐优化版。44 个分组（7 个自动辅助组隐藏，通常显示 37 个），服务选择与 OpenClash 对齐，61 个来源转换为 Shadowrocket 原生规则格式。
-- `lazy_group-AppleAI-test.conf`：原配置的最小测试版，保留原服务分组与规则源，新增 Apple Intelligence 分组和七条后缀规则，地区组支持默认自动及直接点选固定节点；公开版删除 MITM 证书、关闭 MITM，并校正规则目标的大小写。原来的混合格式等问题仍保留，适合对照测试，不推荐长期使用。
+- `lazy_group-AppleAI-test.conf`：原配置的最小测试版，保留原服务分组与规则源，新增 Apple Intelligence 分组和11 条后缀规则，地区组支持默认自动及直接点选固定节点；公开版删除 MITM 证书、关闭 MITM，并校正规则目标的大小写。原来的混合格式等问题仍保留，适合对照测试，不推荐长期使用。
 - `rules/`：优化版引用的规则列表。`sources.json` 记录来源、格式、规则数量和校验值；`validation.json` 记录静态验证结果。
 - `对比分析.md`：旧小火箭与 OpenClash 的差异、优化选择及测试边界。
 
@@ -26,7 +26,7 @@ RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgr
 RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list,REJECT
 ```
 
-第 5–11 条为用户指定的七条 `DOMAIN-SUFFIX`，全部指向 `🍏 Apple Intelligence`，随后才是局域网和普通服务规则。原有 `192.168.100.0/24` TUN 包含路由也保留。**HOME 是已有外部节点/策略名称，配置不虚构回家节点。** 客户端必须已有 HOME 才能访问回家网段。
+第 5–15 条为统一 Apple 规则源生成的 11 条 `DOMAIN-SUFFIX`，全部指向 `🍏 Apple Intelligence`，随后才是局域网和普通服务规则。原有 `192.168.100.0/24` TUN 包含路由也保留。**HOME 是已有外部节点/策略名称，配置不虚构回家节点。** 客户端必须已有 HOME 才能访问回家网段。
 
 原 OpenClash 默认所有自动的服务，在小火箭中改为所有手动；OpenClash 本身不改动。
 
@@ -52,7 +52,7 @@ python3 -m unittest discover -s tests -v
 
 原有 GitHub 每日更新流程同时重建小火箭规则。客户端需要更新规则集；改了分组或配置参数时还要更新配置。配置文件的更新地址已改为本仓库，不再指向旧第三方 lazy_group 模板。
 
-已验证规则格式、源文件哈希、首四条保留、七条及其子域名优先归属、服务分组默认值、循环引用、HOME 先于普通局域网、共享 CDN 边界与地区前缀识别。另外使用 macOS Apple Foundation 正则引擎检查了地区筛选表达式及转发前缀样例。HOME 包含 /24 与排除 /16 的实际 TUN 路由优先级、地区自动/手动组的客户端行为仍需设备确认。未执行 iPad 导入、实际节点连通、iCloud 到达或 Apple Intelligence 功能激活测试；静态验证不是官方 Shadowrocket 解析器验证。
+已验证规则格式、源文件哈希、首四条保留、11 条及其子域名优先归属、服务分组默认值、循环引用、HOME 先于普通局域网、共享 CDN 边界与地区前缀识别。另外使用 macOS Apple Foundation 正则引擎检查了地区筛选表达式及转发前缀样例。HOME 包含 /24 与排除 /16 的实际 TUN 路由优先级、地区自动/手动组的客户端行为仍需设备确认。未执行 iPad 导入、实际节点连通、iCloud 到达或 Apple Intelligence 功能激活测试；静态验证不是官方 Shadowrocket 解析器验证。
 
 本地的旧草稿已备份到仓库外，然后由这些新文件替换。原用户数据库不公开上传。
 

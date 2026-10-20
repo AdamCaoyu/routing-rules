@@ -12,5 +12,10 @@ DOMAIN-SUFFIX,cp4.cloudflare.com
 DOMAIN-SUFFIX,gateway.icloud.com
 DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com
 
-# Precise relay endpoint also listed by MetaCubeX/meta-rules-dat.
-DOMAIN,apple-relay.mask.apple-dns.net
+# Relay endpoint also listed by MetaCubeX/meta-rules-dat; include subdomains.
+DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net
+
+# User screenshot (2026-09-17 list), merged 2026-10-21.
+# Supplemental endpoints; not asserted to be documented by Apple.
+DOMAIN-SUFFIX,apple-relay.akamaized.net
+DOMAIN-SUFFIX,api-siri-prod.apple.com
