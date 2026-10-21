@@ -63,12 +63,12 @@
     {
       "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/anthropic.yaml",
       "format": "clash-domain",
-      "count": 9,
+      "count": 19,
       "removed_process_rules": 0,
-      "source_sha256": "b2f2f545516246137ac8da3bf75f42fb1c4b9ab13d351e5d7de7700cda184d75",
+      "source_sha256": "b076801f5903f02d8976ebf82a2e7a7868e772a0e4dbaa12a7154f2d756a760a",
       "file": "06-anthropic.list",
       "policy": "🧠 Claude",
-      "sha256": "64c4b9ff7b02856eac1aec5b708b42bdafb09d55ea297860442505d9ebc0f60b"
+      "sha256": "be83e175d099ee2b82d702efa8be2cb8bba97c1c709b2fc9cbf8e26d535fdc58"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/MetaAI.yaml",
@@ -343,12 +343,12 @@
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/OtherAI.yaml",
       "format": "clash-classic",
-      "count": 189,
+      "count": 200,
       "removed_process_rules": 0,
-      "source_sha256": "4114002e49023ad573575727d33b119ce10c7fa5bb1b8d7e705987b8eaeffda8",
+      "source_sha256": "85e1d34c2fcaa9d20be7344fbe2be11198e84109249b456261e9fb2b935d3065",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "cc5d5ac6b717cec95c6fbf52169b3eeffce484df923ac84edb42c1bfdb41986e"
+      "sha256": "9726b118ef4f666cd30f16208eb37e794168604fffd510c3cc30d494f381b3bf"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
