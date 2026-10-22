@@ -145,6 +145,51 @@ class RulesTests(unittest.TestCase):
         for h in ['outlook.live.com','unrelated.trafficmanager.net','unrelated.msedge.net']:
             self.assertFalse(any(matches(r,h) for r in rules))
 
+
+    def test_meta_ai_first_match_preserves_facebook(self):
+        import json
+        from urllib.parse import urlparse
+        import yaml
+
+        snapshots = {item['source']: item for item in json.loads(
+            (ROOT / 'shadowrocket/sources.json').read_text())['sources']}
+        ordered = []
+        for line in template():
+            if not line.startswith('ruleset='):
+                continue
+            group, spec = line[8:].split(',', 1)
+            if spec.startswith('[]'):
+                ordered.append((group, [spec[2:]]))
+                continue
+            url = spec.split(':', 1)[1].rsplit(',', 1)[0]
+            if '/routing-rules/' in url and '/rules/' in url:
+                path = ROOT / ('rules/' + url.split('/rules/', 1)[1])
+                payload = yaml.safe_load(path.read_text())['payload']
+            else:
+                item = snapshots[url]
+                payload = entries(ROOT / 'shadowrocket/rules' / item['file'])
+            ordered.append((group, payload))
+
+        self.assertEqual(entries(ROOT / 'shadowrocket/rules/07-MetaAI.list'),
+                         entries(ROOT / 'rules/local/MetaAI.list'))
+
+        cases = {
+            'muse.ai': '🦙 Meta AI',
+            'www.muse.ai': '🦙 Meta AI',
+            'arbitrary.deep.subdomain.muse.ai': '🦙 Meta AI',
+            'ai.meta.com': '🦙 Meta AI',
+            'sub.ai.meta.com': '🦙 Meta AI',
+            'agent.meta.ai': '🦙 Meta AI',
+            'meta.com': '🗣️ Facebook',
+            'www.meta.com': '🗣️ Facebook',
+            'facebook.com': '🗣️ Facebook',
+        }
+        for domain, expected in cases.items():
+            with self.subTest(domain=domain):
+                first = next((group for group, payload in ordered
+                              if any(matches(rule, domain) for rule in payload)), None)
+                self.assertEqual(first, expected)
+
     def test_build_is_reproducible(self):
         import subprocess, sys
         before = (ROOT/'Clash-Full.ini').read_bytes()

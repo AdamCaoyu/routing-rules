@@ -2,7 +2,7 @@
   "status": "static checks passed",
   "groups": 44,
   "providers": 61,
-  "expanded_rules": 47250,
+  "expanded_rules": 47252,
   "domain_checks": 61,
   "preserved_first_rules": [
     "DOMAIN-SUFFIX,iqos.com,日本节点",

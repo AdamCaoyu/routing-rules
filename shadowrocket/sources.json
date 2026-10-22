@@ -73,12 +73,12 @@
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/MetaAI.yaml",
       "format": "clash-classic",
-      "count": 3,
+      "count": 5,
       "removed_process_rules": 0,
-      "source_sha256": "babb948c9ebcf3390c3cf36f87d8835d253eca76ac9aab32bc6ba83a94ccc5de",
+      "source_sha256": "f912e7365567d4ff8c558e13dedb19f0fb41d8146fb03cd46d06afd32b7a056a",
       "file": "07-MetaAI.list",
       "policy": "🦙 Meta AI",
-      "sha256": "1a6ba49b495a8f74ffbd0a86d4e210881da8a91193f898ca07d772bdff8c2cc1"
+      "sha256": "e060d1b99edde3977eb2f69e9b72194c99bc27ab6ac0f4ad9c836e813f61bedc"
     },
     {
       "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/perplexity.yaml",
