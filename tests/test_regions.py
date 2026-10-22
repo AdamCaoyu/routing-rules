@@ -3,7 +3,9 @@ from pathlib import Path
 import importlib.util
 import re
 import unittest
+import sys
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT/'scripts'))
 spec=importlib.util.spec_from_file_location('generate_groups',ROOT/'scripts/generate_groups.py')
 g=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(g)

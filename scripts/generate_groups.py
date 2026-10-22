@@ -2,6 +2,7 @@
 from pathlib import Path
 import json
 import re
+from generate_dns import group_lines as dns_group_lines
 ROOT=Path(__file__).resolve().parents[1]
 
 def settings():
@@ -55,6 +56,7 @@ def build_groups():
     rows+=['','; 自动测速辅助组。日常在上面的地区节点卡片操作即可。']
     for name,pattern in regions.items():
         rows.append('custom_proxy_group='+name+'-自动`url-test`'+pattern+'`[]REJECT`https://www.gstatic.com/generate_204`180,5,100')
+    rows += dns_group_lines()
     return '\n'.join(rows)+'\n'
 
 if __name__=='__main__':

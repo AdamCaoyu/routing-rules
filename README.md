@@ -10,6 +10,8 @@ https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/Clash-
 
 填入现有订阅转换的“自定义模板地址”。继续使用你自己的订阅和转换服务。本仓库不包含节点、密码或订阅链接。
 
+Mihomo / OpenClash 版模板同时携带双加密 DNS 基础配置和 4 个 DNS 专用检测组。已有设备更新并重新应用订阅即可获取；如果客户端启用了本地 DNS 覆写，需先确认覆写没有替换模板 DNS。其他设备使用同一模板和各自订阅即可复用，详见 [DNS 配置与更新](docs/DNS配置与更新.md)。Shadowrocket 仍使用其独立配置，本次 DNS 设置不适用于它。
+
 ## 面板怎么选
 
 ChatGPT、Claude、Grok、Perplexity、Meta AI 与 TikTok、Telegram 一样独立选择地区组。服务卡片不再展开所有节点；删除港台日新韩 / 台日新韩两个组合自动组。

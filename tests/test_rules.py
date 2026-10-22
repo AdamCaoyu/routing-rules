@@ -45,7 +45,7 @@ class RulesTests(unittest.TestCase):
         sources = [line for line in template() if line.startswith('ruleset=')]
         ai = [i for i, line in enumerate(sources) if line.startswith('ruleset=' + AI + ',')]
         self.assertTrue(ai, 'Apple Intelligence has no ruleset binding')
-        general = [i for i, line in enumerate(sources) if line.startswith(('ruleset=🍎 Apple,', 'ruleset=🤖 AI,', 'ruleset=🌍 国外,'))]
+        general = [i for i, line in enumerate(sources) if line.startswith(('ruleset=🍎 Apple,', 'ruleset=🤖 AI,', 'ruleset=🌍 国外,')) and '[]DOMAIN,gateway.icloud.com' not in line]
         self.assertLess(max(ai), min(general))
 
     def test_ai_routes_cover_services_without_capturing_ordinary_apple(self):
@@ -83,7 +83,7 @@ class RulesTests(unittest.TestCase):
             self.assertFalse(any(matches(rule, 'unrelated-' + domain) for rule in rules))
         sources = [line for line in template() if line.startswith('ruleset=')]
         ai = next(i for i, line in enumerate(sources) if line.startswith('ruleset=' + AI + ','))
-        self.assertTrue(all(line.startswith('ruleset=DIRECT,') for line in sources[:ai]))
+        self.assertTrue(all(line.startswith('ruleset=DIRECT,') or line == 'ruleset=🍎 Apple,[]DOMAIN,gateway.icloud.com' for line in sources[:ai]))
 
     def test_groups_exist_and_no_cycles(self):
         groups = {}

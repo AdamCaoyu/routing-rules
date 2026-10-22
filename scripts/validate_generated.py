@@ -11,6 +11,14 @@ import yaml
 
 config = yaml.safe_load(Path(sys.argv[1]).read_text())
 groups = {g['name']: g for g in config['proxy-groups']}
+assert 'GitHub-TW-Fallback' not in groups
+for resolver in config['dns']['nameserver']:
+    name = resolver.split('#', 1)[1]
+    assert groups[name]['type'] == 'fallback'
+    assert groups[name]['interval'] == 300
+    assert '?dns=' in groups[name]['url']
+    assert not any(p in {'DIRECT', '🌍 国外'} for p in groups[name]['proxies'])
+assert config['dns']['nameserver-policy']['gateway.icloud.com'][0].endswith('#DIRECT')
 ai = '🍏 Apple Intelligence'
 for name in ['所有','香港','台湾','日本','新加坡','韩国','美国','其他']:
     g = groups[name+'-自动']
@@ -81,6 +89,7 @@ def first_domain_match(domain):
             return parts[2]
 
 cases = {}
+cases['gateway.icloud.com'] = '🍎 Apple'
 for domain in ['gateway.icloud.com', 'apple-relay.apple.com',
                'apple-relay.fastly-edge.com', 'apple-relay.cloudflare.com',
                'guzzoni.apple.com', 'cp4.cloudflare.com', 'gspe1-ssl.ls.apple.com']:
@@ -93,6 +102,7 @@ for domain in ['guzzoni.apple.com', 'api.smoot.apple.com', 'apple-relay.apple.co
 for domain in ['www.apple.com', 'apps.mzstatic.com',
                'push.apple.com', 'time.apple.com']:
     cases[domain] = '🍎 Apple'
+cases['gateway.icloud.com'] = '🍎 Apple'
 cases.update({'chatgpt.com':'💬 ChatGPT','auth.openai.com':'💬 ChatGPT',
               'cdn.oaistatic.com':'💬 ChatGPT','files.oaiusercontent.com':'💬 ChatGPT',
               'chatgpt.livekit.cloud':'💬 ChatGPT','openaiassets.blob.core.windows.net':'💬 ChatGPT',
