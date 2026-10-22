@@ -56,5 +56,14 @@
       "DOMAIN-SUFFIX,gateway.ai.cloudflare.com",
       "DOMAIN,browser-intake-datadoghq.com"
     ]
+  },
+  "GitHubIPs": {
+    "source": "https://api.github.com/meta",
+    "categories": [
+      "web",
+      "api",
+      "git"
+    ],
+    "kept_count": 83
   }
 }
