@@ -215,10 +215,10 @@
       "format": "clash-domain",
       "count": 224,
       "removed_process_rules": 0,
-      "source_sha256": "82a29d0d026797b013bae26a2ef257dad4fcd64a3b56e7ba01b924b82bd77ef8",
+      "source_sha256": "21fee1a588ef81d49cb45714f7efa4d85c05af2b315443f6d55a4fbab6168391",
       "file": "21-disney.list",
       "policy": "📺 Disney",
-      "sha256": "ce3791dce74c455cf6c4df359ccd7f4ae069be75aaef26964be0a0e11addf4e5"
+      "sha256": "85dd41a335de55882de6b07e4c9fbe6f5f82ba6820d1316a2ca087888e42e71a"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/NetflixExtra.yaml",
@@ -345,10 +345,10 @@
       "format": "clash-classic",
       "count": 200,
       "removed_process_rules": 0,
-      "source_sha256": "4e18092e2e10941934f813d387b0c4c5976905d12969c808cdfd4898105a7b10",
+      "source_sha256": "31b81c985efe110f99f2eb1c49cfdf703b355a38d5890111b9296e2ebcb56b0b",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "f76117ea4bcd5cb070b5c236147340e6550432230da8c31966a577bc77367cdf"
+      "sha256": "6b90579494bd4f8d40daf14a77399da81f909747ab00267e035547b228d69306"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
@@ -451,12 +451,22 @@
       "sha256": "ac0848c4fc62cae0aedc80aac5ad98965c8d24aecb13f6be803f83fbe054d3f3"
     },
     {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/GitHubIPs.yaml",
+      "format": "clash-classic",
+      "count": 83,
+      "removed_process_rules": 0,
+      "source_sha256": "48caf618e87942132c8cb2463bf9f8459acc0f5e08c99451a0c123a29959be8e",
+      "file": "45-GitHubIPs.list",
+      "policy": "📘 GitHub",
+      "sha256": "c167368984b371c64a9b33836fdebc378cf3ee4914df51a3c642bcd32d7794bd"
+    },
+    {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AmazonServices.yaml",
       "format": "clash-classic",
       "count": 181,
       "removed_process_rules": 1,
       "source_sha256": "c82fedfd5fe7e08e20d5eba36fdc6cb1f741a419fa8dca4f88a04fad46f4a669",
-      "file": "45-AmazonServices.list",
+      "file": "46-AmazonServices.list",
       "policy": "🌳 Amazon",
       "sha256": "81015d0feb0492639b0fca2c824bbb7fd3b368ccaa36b725300b5d47e64977e9"
     },
@@ -466,7 +476,7 @@
       "count": 202,
       "removed_process_rules": 1,
       "source_sha256": "296df2390b66dbbd9af9a349252fc8ecd81f58492b9ed96caa20b0653c7e9ef8",
-      "file": "46-Amazon_No_Resolve.list",
+      "file": "47-Amazon_No_Resolve.list",
       "policy": "🌍 国外",
       "sha256": "3017e05d18d39749658bf26f4df7c7e07eb098109f8554c6be1b57327125d423"
     },
@@ -476,7 +486,7 @@
       "count": 127,
       "removed_process_rules": 0,
       "source_sha256": "9b22a7bdf97792346bf480771841b6cd1097ec7ad034b34528c14f3798107854",
-      "file": "47-BiliBili.list",
+      "file": "48-BiliBili.list",
       "policy": "📺 哔哩哔哩",
       "sha256": "0cba05299c6c40f20337ee9f096590553b007a7b2cf530d7e20204aaa2c95707"
     },
@@ -486,7 +496,7 @@
       "count": 30,
       "removed_process_rules": 0,
       "source_sha256": "da8638a8414224a63dd29d7b45446956ed98c67f88d3b530c80b6c978191fc09",
-      "file": "48-NetEaseMusic.list",
+      "file": "49-NetEaseMusic.list",
       "policy": "DIRECT",
       "sha256": "906996fcedcc5d22f112d649ee03860c58affbfe986d54bec3f75e1718694a8a"
     },
@@ -496,7 +506,7 @@
       "count": 251,
       "removed_process_rules": 0,
       "source_sha256": "ac49361bba37ccd12f46dff78885ef07218d9dc9deb254d71d1c0431a7eb921a",
-      "file": "49-Baidu.list",
+      "file": "50-Baidu.list",
       "policy": "DIRECT",
       "sha256": "811cbe8b6a219d3231f01704ee132cb907ccb59e8f9ed0b27dfe3827781351a4"
     },
@@ -506,7 +516,7 @@
       "count": 3,
       "removed_process_rules": 0,
       "source_sha256": "49b368896f4e38f4a31ac911b8e13fee923575884afe0d27a3cb1a0735551742",
-      "file": "50-DouBan.list",
+      "file": "51-DouBan.list",
       "policy": "DIRECT",
       "sha256": "382bc69c6e7fce1928d9bd29d756f5dcf4fab680c61159135dff241d86a272e1"
     },
@@ -516,7 +526,7 @@
       "count": 33,
       "removed_process_rules": 0,
       "source_sha256": "c48cebb11ccc41a56a22560b83c64bf0efdf9c598128da3771f36fe591a0924e",
-      "file": "51-WeChat.list",
+      "file": "52-WeChat.list",
       "policy": "DIRECT",
       "sha256": "a7b8e4714d24e7c0e1fc646181450e3aecb7ef76d1b69d0b272bd1f5355882d0"
     },
@@ -526,7 +536,7 @@
       "count": 13,
       "removed_process_rules": 0,
       "source_sha256": "020e742fe4a7084268af6aa52c4153bf5bfd54c4d7a17466f42cd3461609e32a",
-      "file": "52-DouYin.list",
+      "file": "53-DouYin.list",
       "policy": "DIRECT",
       "sha256": "21b2936c78fafce86d58669d635466afc39edb953971bd95e958b2f1147abe56"
     },
@@ -536,7 +546,7 @@
       "count": 108,
       "removed_process_rules": 0,
       "source_sha256": "223182b8b06af7838174f94839e1e799b39a9e283b66b0e1a71108539d7c2829",
-      "file": "53-Sina.list",
+      "file": "54-Sina.list",
       "policy": "DIRECT",
       "sha256": "aa8ae9479f966408618f2d5cefc4541988de68eb258b04aaf8fd934719e95144"
     },
@@ -546,7 +556,7 @@
       "count": 7,
       "removed_process_rules": 0,
       "source_sha256": "450c53b3762b1aa2f63631f8d07c7237338c8c691aeb475ed07583cfea9d5e33",
-      "file": "54-Zhihu.list",
+      "file": "55-Zhihu.list",
       "policy": "DIRECT",
       "sha256": "2cd4feceaa477f1196ef45cdb6ce64db732cc9509232958b1ea26ee6b3d0e845"
     },
@@ -556,7 +566,7 @@
       "count": 4,
       "removed_process_rules": 0,
       "source_sha256": "9fb20e80dc0962cfdf410ffbd72d6bf2a6a0ac0d930951880f98164ff229e8ff",
-      "file": "55-XiaoHongShu.list",
+      "file": "56-XiaoHongShu.list",
       "policy": "DIRECT",
       "sha256": "b0e2a9212f547e54b54287d04c736be38c11469d2be2ade2ce552166728d20c1"
     },
@@ -566,7 +576,7 @@
       "count": 63,
       "removed_process_rules": 0,
       "source_sha256": "65477cd1e2917a8ca09ba08132e9d9131c54c0d9e1cfcba0be2eaa8ea1a04b75",
-      "file": "56-China.list",
+      "file": "57-China.list",
       "policy": "DIRECT",
       "sha256": "101e741bbaea017cc7fa0a6ccc48748e34cfc695e4db7490ee6fdc89efa35c65"
     },
@@ -576,7 +586,7 @@
       "count": 3689,
       "removed_process_rules": 0,
       "source_sha256": "d35eec789ae09a6d2b6dd48ed2c52d6d811f433b1e73a92b2f9246b778fa7923",
-      "file": "57-China_Domain.list",
+      "file": "58-China_Domain.list",
       "policy": "DIRECT",
       "sha256": "1cb315a2efb2cd16b9adfc3a93b08d6a09d200d94a64fb3593a435ad4c47e400"
     },
@@ -586,7 +596,7 @@
       "count": 35205,
       "removed_process_rules": 1,
       "source_sha256": "07af415c49c9d64b957d9bdba7fd5384932364aa7bd2be442856b32b65bef904",
-      "file": "58-Global_Classical_No_Resolve.list",
+      "file": "59-Global_Classical_No_Resolve.list",
       "policy": "🌍 国外",
       "sha256": "1ea93a077f6027e9ca1356148eb2675ecdfe3666502afe2e913abf0259181850"
     },
