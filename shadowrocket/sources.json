@@ -215,10 +215,10 @@
       "format": "clash-domain",
       "count": 224,
       "removed_process_rules": 0,
-      "source_sha256": "21fee1a588ef81d49cb45714f7efa4d85c05af2b315443f6d55a4fbab6168391",
+      "source_sha256": "10cceb54944b6a379fa1645a58f925a2f6b80ae8444d01e327ed77d48774c4e6",
       "file": "21-disney.list",
       "policy": "📺 Disney",
-      "sha256": "85dd41a335de55882de6b07e4c9fbe6f5f82ba6820d1316a2ca087888e42e71a"
+      "sha256": "6f7a950ddcc131f507423711d6acc7570b5d3237dd24f2984a657119d8286261"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/NetflixExtra.yaml",
@@ -345,20 +345,20 @@
       "format": "clash-classic",
       "count": 200,
       "removed_process_rules": 0,
-      "source_sha256": "31b81c985efe110f99f2eb1c49cfdf703b355a38d5890111b9296e2ebcb56b0b",
+      "source_sha256": "c50bf03b27514fd6afa968eead35ce161602e2241727292e0a3964351643adf5",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "6b90579494bd4f8d40daf14a77399da81f909747ab00267e035547b228d69306"
+      "sha256": "143675b83b16b9e33c071ba37427b5976bca55931f05e33eb767f922ad50e53a"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
       "format": "clash-classic",
       "count": 1579,
       "removed_process_rules": 13,
-      "source_sha256": "37c527220e8625d1f14982bba60dd678b9cf7c589f40471ffe1f6ac940ad42ea",
+      "source_sha256": "b9f67c9c84e5f4fb74d2a4928e8bc2c283135c36a9d03bc539e9344784a8a1e6",
       "file": "35-AppleServices.list",
       "policy": "🍎 Apple",
-      "sha256": "d247847f141a51b499a4d3012de1dc4923e9832e6c6b53441c8250e5274d203f"
+      "sha256": "83637893d2a2134dcea3aeafd641c3d56420b818579ab1f818f66434cd6d3139"
     },
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml",
@@ -373,12 +373,12 @@
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml",
       "format": "clash-classic",
-      "count": 54,
+      "count": 69,
       "removed_process_rules": 0,
-      "source_sha256": "585e423c866bb020421a79dd2842f279b56ef94bf487fbee13354796958dcad6",
+      "source_sha256": "5b5096fafff8bc3c77560590d095ebfccefe708d47ea04fc36d1b052a7e4dd5f",
       "file": "37-Steam.list",
       "policy": "🎮 Steam",
-      "sha256": "92f6a04c8871491faa6f0293ecea9e38f31f115a96297346665621b03d0bf99d"
+      "sha256": "44d5e7c6f1cf609ac5dc122740de98f9e618fb737db8d24e76d6e82019459d14"
     },
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.yaml",
@@ -405,10 +405,10 @@
       "format": "clash-classic",
       "count": 62,
       "removed_process_rules": 0,
-      "source_sha256": "ec82f75ac834d5ad395f45d42e3804bad4952587dbf4590edc2eaca4166a13ff",
+      "source_sha256": "939944e8ba6004d8612e1e4ebb92455d9606adc9e5a1fca14d298bda63008f28",
       "file": "40-Blizzard_No_Resolve.list",
       "policy": "🕹️ Game",
-      "sha256": "fe69f656d80d22f7296772fb7cf82a01c977cffd90538e07141cea055c3f21fa"
+      "sha256": "bae47c4909859b21e89b41762d006c918e91a03d40afadbda83b63ba18583ae9"
     },
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/UBI/UBI.yaml",
@@ -593,12 +593,12 @@
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical_No_Resolve.yaml",
       "format": "clash-classic",
-      "count": 35205,
+      "count": 35256,
       "removed_process_rules": 1,
-      "source_sha256": "07af415c49c9d64b957d9bdba7fd5384932364aa7bd2be442856b32b65bef904",
+      "source_sha256": "90d7e30de57c1cb6d7174b6351dd377bb9c3954a04cb89db4ef5ef8e72762c5b",
       "file": "59-Global_Classical_No_Resolve.list",
       "policy": "🌍 国外",
-      "sha256": "1ea93a077f6027e9ca1356148eb2675ecdfe3666502afe2e913abf0259181850"
+      "sha256": "6ca57d1f01a2ed6543fa46c76c3635a9e586e5e9750d42035d2bda449173bf74"
     },
     {
       "file": "retained-BanProgramAD.list",
