@@ -1,8 +1,8 @@
 {
   "AppleServices": {
     "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical_No_Resolve.yaml",
-    "upstream_count": 1593,
-    "kept_count": 1592,
+    "upstream_count": 1592,
+    "kept_count": 1591,
     "removed": [
       "DOMAIN-SUFFIX,akadns.net"
     ]
@@ -51,8 +51,8 @@
     "upstream_count": 204,
     "kept_count": 200,
     "removed": [
-      "DOMAIN-SUFFIX,host.livekit.cloud",
       "DOMAIN-SUFFIX,turn.livekit.cloud",
+      "DOMAIN-SUFFIX,host.livekit.cloud",
       "DOMAIN-SUFFIX,gateway.ai.cloudflare.com",
       "DOMAIN,browser-intake-datadoghq.com"
     ]
