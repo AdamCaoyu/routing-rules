@@ -1,6 +1,5 @@
 # Converted for Shadowrocket; Source: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.yaml
 # Attribution: MetaCubeX/meta-rules-dat; GPL-3.0, see repository licenses.
-DOMAIN,netflix.com.edgesuite.net
 DOMAIN-SUFFIX,fast.com
 DOMAIN-SUFFIX,netflix.ca
 DOMAIN-SUFFIX,netflix.com
@@ -24,3 +23,4 @@ DOMAIN-SUFFIX,netflixdnstest7.com
 DOMAIN-SUFFIX,netflixdnstest8.com
 DOMAIN-SUFFIX,netflixdnstest9.com
 DOMAIN-SUFFIX,netflixdnstest10.com
+DOMAIN-SUFFIX,netflix.com.edgesuite.net
