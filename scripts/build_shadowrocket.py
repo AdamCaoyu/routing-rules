@@ -23,6 +23,15 @@ def active(text):
     return [line.strip() for line in text.splitlines() if line.strip() and not line.lstrip().startswith(('#', ';'))]
 
 
+def provider_filename(url):
+    # Published names are an API: inserting a source must not rename old URLs.
+    registry = json.loads((ROOT / 'config/shadowrocket-provider-files.json').read_text())
+    if url in registry['files']:
+        return registry['files'][url]
+    stem = url.rsplit('/', 1)[-1].rsplit('.', 1)[0]
+    return stem + '-' + hashlib.sha256(url.encode()).hexdigest()[:12] + '.list'
+
+
 def normalized(entry, kind):
     if kind in {'clash-domain', 'native-domain'}:
         if entry.startswith(('+.','.')):
@@ -157,7 +166,7 @@ def build():
             rule_lines.append(item)
             continue
         payload, metadata = lookup[id(item)]
-        filename = f'{len(records):02d}-' + item['url'].rsplit('/', 1)[-1].rsplit('.', 1)[0] + '.list'
+        filename = provider_filename(item['url'])
         files.add(filename)
         body = '# Converted for Shadowrocket; Source: ' + item['url'] + '\n'
         if 'blackmatrix7/' in item['url'] or '/rules/filtered/' in item['url']:
@@ -185,6 +194,12 @@ def build():
                         'count': len(payload), 'original_binding': True,
                         'source_sha256': hashlib.sha256(data.encode()).hexdigest(),
                         'sha256': hashlib.sha256(body.encode()).hexdigest()})
+    registry = json.loads((ROOT / 'config/shadowrocket-provider-files.json').read_text())
+    for alias, canonical in registry['aliases'].items():
+        if alias in files or canonical not in files:
+            raise ValueError('Invalid published provider alias: ' + alias)
+        (rules_dir / alias).write_bytes((rules_dir / canonical).read_bytes())
+        files.add(alias)
     for path in rules_dir.glob('*.list'):
         if path.name not in files:
             path.unlink()

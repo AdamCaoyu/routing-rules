@@ -63,3 +63,9 @@ python3 -m unittest discover -s tests -v
 固定节点：进入地区组，关闭“测试并选择最快的服务器”，直接点选具体节点。若保留该开关开启并再次测试，会重选节点。切回地区自动可以恢复自动选择。不要在隐藏的自动组中手动固定，其后台逻辑仍会切换。
 
 参考：https://github.com/LOWERTOP/Shadowrocket/wiki#代理分组
+
+## 旧配置规则集 URL 兼容
+
+已发布的规则集文件名由 `config/shadowrocket-provider-files.json` 固定，不再随来源插入顺序变化。保留 45-AmazonServices 至 58-Global_Classical_No_Resolve 的旧地址作为兼容副本，每次构建与当前规则同步，旧 iCloud 配置可继续更新。新配置仍建议通过配置内 update-url 更新，以获取新增来源。
+
+IPv6 默认保持开启。关闭后若 Telegram 失联、重新开启即恢复，应保留 IPv6；不要仅据此改动 Telegram 分流或 UDP 设置。
