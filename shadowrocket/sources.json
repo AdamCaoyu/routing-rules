@@ -43,12 +43,12 @@
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/CaoyuProxy.yaml",
       "format": "clash-classic",
-      "count": 6,
+      "count": 7,
       "removed_process_rules": 0,
-      "source_sha256": "bf18980f513ce2027d6d7f01052870170e0100328f876a1ca6ddcfaee5aac216",
+      "source_sha256": "f3c2777eb2f7978246836372a53b258bad5eba20c0142c0102e15219b2885823",
       "file": "04-CaoyuProxy.list",
       "policy": "🌍 国外",
-      "sha256": "f8dd7ff9d5714a3d2885a921c629f1ae3614642394e68faf1c08dc6ed204cf6c"
+      "sha256": "caaee3d50b216a9b5fa1fb1493b38dc1e10cac0c548a782ca349b731ae4a4a5c"
     },
     {
       "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/xai.yaml",
