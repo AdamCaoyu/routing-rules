@@ -215,10 +215,10 @@
       "format": "clash-domain",
       "count": 224,
       "removed_process_rules": 0,
-      "source_sha256": "a116bc6b8b5dfbab333cd3b4eb7156b4c86883faf43d8a1d81c7652b5ddafef8",
+      "source_sha256": "992da26f20b1ea13627a935316bf30938a4361a098244b4fe645d6789690b6e6",
       "file": "21-disney.list",
       "policy": "📺 Disney",
-      "sha256": "5caadc493db56bb3adfccee1c09b59e21b69d7f0df9f71b01c3ad6cd7004b7bb"
+      "sha256": "2635517b252e3c6c9456d0b2329012d26458a070768af69760a5728aad8229ba"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/NetflixExtra.yaml",
@@ -323,12 +323,12 @@
     {
       "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bing.yaml",
       "format": "clash-domain",
-      "count": 40,
+      "count": 41,
       "removed_process_rules": 0,
-      "source_sha256": "76e566bc13d276792ece9005cf4f4dd450c1ba892752980ac37c7e78773c30ab",
+      "source_sha256": "6b001003152c6ce33b2fe80667eb7ff1adc48549fb6a9678b583308567017715",
       "file": "32-bing.list",
       "policy": "Ⓜ️ Microsoft",
-      "sha256": "44ec426f539b80d562a409afcd8dbe2d1154433828828a2a2bc99d30b7d91889"
+      "sha256": "6f36261c673f2bb114df55d529f191b8afb0aa3649ed46c1915f983091e2ad1f"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/MicrosoftServices.yaml",
@@ -345,10 +345,10 @@
       "format": "clash-classic",
       "count": 209,
       "removed_process_rules": 0,
-      "source_sha256": "8c5c66505f04fbc1f293b7becfb8038d30e68d5de50dc506a50241679bcf09d8",
+      "source_sha256": "2d351cafa28044d8c3cf46934fa34fc9a3c8cbceb0698105c09dfcb62699cfcb",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "afe09b47b5b8a4c369d92a0fc87a1f8938521d6e23b8046aa3b24594e8cedcb7"
+      "sha256": "fa222357ad2d2ba7064ff91d2c651f99c07e405532ad5a1f7574c7cb900713f3"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
