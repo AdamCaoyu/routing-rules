@@ -215,10 +215,10 @@
       "format": "clash-domain",
       "count": 224,
       "removed_process_rules": 0,
-      "source_sha256": "21fee1a588ef81d49cb45714f7efa4d85c05af2b315443f6d55a4fbab6168391",
+      "source_sha256": "10cceb54944b6a379fa1645a58f925a2f6b80ae8444d01e327ed77d48774c4e6",
       "file": "21-disney.list",
       "policy": "📺 Disney",
-      "sha256": "85dd41a335de55882de6b07e4c9fbe6f5f82ba6820d1316a2ca087888e42e71a"
+      "sha256": "6f7a950ddcc131f507423711d6acc7570b5d3237dd24f2984a657119d8286261"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/NetflixExtra.yaml",
@@ -345,10 +345,10 @@
       "format": "clash-classic",
       "count": 209,
       "removed_process_rules": 0,
-      "source_sha256": "28b10419c060002dccbbff4ad6dc50f917a3d20db9fbbf1d191f4a83bcccbcb4",
+      "source_sha256": "06c446bd5273a0a5b67ef85d523cac0c6359eb96acf36c8c854971ea80994619",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "46457f4d24296daa06b15dec2d3cc99f0de8637668e75dbf32b63940963f6715"
+      "sha256": "43996d96d388df602e0881a7c8b128a9d307283a4da9ffbeb92a0269e05a61e5"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
