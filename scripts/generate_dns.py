@@ -8,26 +8,26 @@ RESOLVERS = [('CF', 'https://cloudflare-dns.com/dns-query'),
              ('Google', 'https://dns.google/dns-query')]
 DOMESTIC = ['https://223.5.5.5/dns-query#DIRECT',
             'https://223.6.6.6/dns-query#DIRECT']
-APPLE = ['apple.com', 'icloud.com', 'icloud-content.com', 'apple-cloudkit.com',
-         'cdn-apple.com', 'itunes.com', 'mzstatic.com', 'apple-dns.net',
-         'aaplimg.com', 'apzones.com']
+SERVICE_DNS = {'netflix': '🎥 Netflix', 'hbo': '🎬 HBO', 'tiktok': '👯‍♂️ TikTok'}
 TAIWAN = '(?i)(TW|台湾|台灣|Taiwan|台北|新北|桃园|桃園|彰化|🇹🇼)'
 
 
 def dns_config():
     upstream = [url + '#DNS-' + name + '-Auto' for name, url in RESOLVERS]
+    # Keep domestic answers for clients/OpenClash filters requesting real IPs.
     policy = {'geosite:cn': DOMESTIC.copy()}
-    policy.update({'+.' + domain: DOMESTIC.copy() for domain in APPLE})
-    for line in (ROOT / 'rules/local/Apple.list').read_text().splitlines():
-        if line.startswith('DOMAIN-SUFFIX,'):
-            policy['+.' + line.split(',')[1]] = upstream.copy()
-    policy['gateway.icloud.com'] = DOMESTIC.copy()
+    policy.update({'geosite:' + service: [url + '#' + group for _, url in RESOLVERS]
+                   for service, group in SERVICE_DNS.items()})
     return {'enable': True, 'listen': '127.0.0.1:1053', 'ipv6': False,
             'enhanced-mode': 'fake-ip', 'fake-ip-range': '198.18.0.1/16',
             'fake-ip-filter': ['*.lan', '*.local', '*.home.arpa', 'localhost'],
             'respect-rules': False,
             'default-nameserver': [x.split('#')[0] for x in DOMESTIC],
             'proxy-server-nameserver': DOMESTIC.copy(),
+            # DIRECT resolves locally even if a service policy uses proxy DNS.
+            # respect-rules routes DNS connections; it does not select these.
+            'direct-nameserver': DOMESTIC.copy(),
+            'direct-nameserver-follow-policy': False,
             'nameserver': upstream, 'nameserver-policy': policy}
 
 

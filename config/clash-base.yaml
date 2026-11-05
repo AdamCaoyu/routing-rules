@@ -19,6 +19,10 @@ dns:
   proxy-server-nameserver:
   - https://223.5.5.5/dns-query#DIRECT
   - https://223.6.6.6/dns-query#DIRECT
+  direct-nameserver:
+  - https://223.5.5.5/dns-query#DIRECT
+  - https://223.6.6.6/dns-query#DIRECT
+  direct-nameserver-follow-policy: false
   nameserver:
   - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
   - https://dns.google/dns-query#DNS-Google-Auto
@@ -26,72 +30,15 @@ dns:
     geosite:cn:
     - https://223.5.5.5/dns-query#DIRECT
     - https://223.6.6.6/dns-query#DIRECT
-    +.apple.com:
-    - https://223.5.5.5/dns-query#DIRECT
-    - https://223.6.6.6/dns-query#DIRECT
-    +.icloud.com:
-    - https://223.5.5.5/dns-query#DIRECT
-    - https://223.6.6.6/dns-query#DIRECT
-    +.icloud-content.com:
-    - https://223.5.5.5/dns-query#DIRECT
-    - https://223.6.6.6/dns-query#DIRECT
-    +.apple-cloudkit.com:
-    - https://223.5.5.5/dns-query#DIRECT
-    - https://223.6.6.6/dns-query#DIRECT
-    +.cdn-apple.com:
-    - https://223.5.5.5/dns-query#DIRECT
-    - https://223.6.6.6/dns-query#DIRECT
-    +.itunes.com:
-    - https://223.5.5.5/dns-query#DIRECT
-    - https://223.6.6.6/dns-query#DIRECT
-    +.mzstatic.com:
-    - https://223.5.5.5/dns-query#DIRECT
-    - https://223.6.6.6/dns-query#DIRECT
-    +.apple-dns.net:
-    - https://223.5.5.5/dns-query#DIRECT
-    - https://223.6.6.6/dns-query#DIRECT
-    +.aaplimg.com:
-    - https://223.5.5.5/dns-query#DIRECT
-    - https://223.6.6.6/dns-query#DIRECT
-    +.apzones.com:
-    - https://223.5.5.5/dns-query#DIRECT
-    - https://223.6.6.6/dns-query#DIRECT
-    +.guzzoni.apple.com:
-    - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
-    - https://dns.google/dns-query#DNS-Google-Auto
-    +.smoot.apple.com:
-    - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
-    - https://dns.google/dns-query#DNS-Google-Auto
-    +.apple-relay.apple.com:
-    - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
-    - https://dns.google/dns-query#DNS-Google-Auto
-    +.apple-relay.cloudflare.com:
-    - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
-    - https://dns.google/dns-query#DNS-Google-Auto
-    +.apple-relay.fastly-edge.com:
-    - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
-    - https://dns.google/dns-query#DNS-Google-Auto
-    +.cp4.cloudflare.com:
-    - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
-    - https://dns.google/dns-query#DNS-Google-Auto
-    +.gateway.icloud.com:
-    - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
-    - https://dns.google/dns-query#DNS-Google-Auto
-    +.gspe1-ssl.ls.apple.com:
-    - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
-    - https://dns.google/dns-query#DNS-Google-Auto
-    +.apple-relay.mask.apple-dns.net:
-    - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
-    - https://dns.google/dns-query#DNS-Google-Auto
-    +.apple-relay.akamaized.net:
-    - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
-    - https://dns.google/dns-query#DNS-Google-Auto
-    +.api-siri-prod.apple.com:
-    - https://cloudflare-dns.com/dns-query#DNS-CF-Auto
-    - https://dns.google/dns-query#DNS-Google-Auto
-    gateway.icloud.com:
-    - https://223.5.5.5/dns-query#DIRECT
-    - https://223.6.6.6/dns-query#DIRECT
+    geosite:netflix:
+    - https://cloudflare-dns.com/dns-query#🎥 Netflix
+    - https://dns.google/dns-query#🎥 Netflix
+    geosite:hbo:
+    - https://cloudflare-dns.com/dns-query#🎬 HBO
+    - https://dns.google/dns-query#🎬 HBO
+    geosite:tiktok:
+    - https://cloudflare-dns.com/dns-query#👯‍♂️ TikTok
+    - https://dns.google/dns-query#👯‍♂️ TikTok
 sniffer:
   enable: true
   parse-pure-ip: true
