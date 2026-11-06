@@ -19,3 +19,15 @@ DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net
 # Supplemental endpoints; not asserted to be documented by Apple.
 DOMAIN-SUFFIX,apple-relay.akamaized.net
 DOMAIN-SUFFIX,api-siri-prod.apple.com
+
+# User-requested community screenshot trial, 2026-11-06.
+# Not an Apple-confirmed cure for Siri quota errors.
+DOMAIN-SUFFIX,mask-api.fe.apple-dns.net
+DOMAIN-SUFFIX,mask-api.icloud.com
+DOMAIN-SUFFIX,mask-t.apple-dns.net
+DOMAIN-SUFFIX,mask.apple-dns.net
+DOMAIN-SUFFIX,ls.apple.com
+DOMAIN-SUFFIX,mask-h2.icloud.com
+DOMAIN-SUFFIX,mask.icloud.com
+DOMAIN-SUFFIX,apps.mzstatic.com
+DOMAIN-SUFFIX,siri.apple.com

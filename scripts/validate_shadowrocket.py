@@ -12,7 +12,10 @@ AI = '🍏 Apple Intelligence'
 DOMAINS = ['gateway.icloud.com', 'apple-relay.apple.com', 'apple-relay.fastly-edge.com',
            'apple-relay.cloudflare.com', 'guzzoni.apple.com', 'cp4.cloudflare.com', 'gspe1-ssl.ls.apple.com',
            'smoot.apple.com', 'apple-relay.mask.apple-dns.net',
-           'apple-relay.akamaized.net', 'api-siri-prod.apple.com']
+           'apple-relay.akamaized.net', 'api-siri-prod.apple.com',
+           'mask-api.fe.apple-dns.net', 'mask-api.icloud.com', 'mask-t.apple-dns.net',
+           'mask.apple-dns.net', 'ls.apple.com', 'mask-h2.icloud.com',
+           'mask.icloud.com', 'apps.mzstatic.com', 'siri.apple.com']
 
 
 def active(text):
@@ -135,7 +138,7 @@ def validate():
                 return p[2]
     cases = {
         'api.smoot.apple.com': AI, 'apple-relay.mask.apple-dns.net': AI,
-        'www.apple.com': '🍎 Apple', 'apps.mzstatic.com': '🍎 Apple', 'mask.icloud.com': '🍎 Apple',
+        'www.apple.com': '🍎 Apple', 'apps.mzstatic.com': AI, 'mask.icloud.com': AI,
         'push.apple.com': '🍎 Apple', 'time.apple.com': '🍎 Apple', 'iqos.com': '日本节点',
         'chatgpt.com': '💬 ChatGPT', 'auth.openai.com': '💬 ChatGPT', 'chatgpt.livekit.cloud': '💬 ChatGPT',
         'claude.ai': '🧠 Claude', 'grok.com': '🤖 Grok', 'meta.ai': '🦙 Meta AI', 'perplexity.ai': '🔍 Perplexity',
@@ -153,7 +156,9 @@ def validate():
     for domain in ['unrelated.akadns.net', 'unrelated.edgesuite.net', 'unrelated.b.akamaiedge.net']:
         assert match(domain) not in {'🍎 Apple', 'Ⓜ️ Microsoft'}, domain
     for domain in ['unrelated-' + d for d in DOMAINS]:
-        assert match(domain) != AI, domain
+        if not any(domain == suffix or domain.endswith('.' + suffix) for suffix in DOMAINS):
+            assert match(domain) != AI, domain
+        assert match(domain + '.invalid') != AI, domain
     for address, expected in [('192.168.100.1', 'HOME'), ('192.168.2.1', 'DIRECT')]:
         ip = ipaddress.ip_address(address)
         actual = next((p[2] for line in expanded if (p := line.split(','))[0] in {'IP-CIDR','IP-CIDR6'} and ip in ipaddress.ip_network(p[1], strict=False)), None)

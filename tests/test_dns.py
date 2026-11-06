@@ -45,8 +45,9 @@ class DnsTests(unittest.TestCase):
                 'https://dns.google/dns-query#' + group])
             self.assertIn('custom_proxy_group=' + group + '`select`', text)
 
-    def test_apple_exact_route_still_precedes_intelligence(self):
+    def test_gateway_has_no_earlier_general_apple_override(self):
         text = (ROOT / 'Clash-Full.ini').read_text()
-        self.assertLess(text.index('ruleset=🍎 Apple,[]DOMAIN,gateway.icloud.com'),
-                        text.index('ruleset=🍏 Apple Intelligence,'))
+        self.assertNotIn('ruleset=🍎 Apple,[]DOMAIN,gateway.icloud.com', text)
+        self.assertLess(text.index('ruleset=🍏 Apple Intelligence,'),
+                        text.index('ruleset=🍎 Apple,'))
 

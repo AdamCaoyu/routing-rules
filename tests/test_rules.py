@@ -57,7 +57,7 @@ class RulesTests(unittest.TestCase):
                        'cdn.oaistatic.com', 'files.oaiusercontent.com']:
             with self.subTest(domain=domain):
                 self.assertTrue(any(matches(r, domain) for r in rules), domain)
-        for domain in ['www.apple.com', 'apps.mzstatic.com',
+        for domain in ['www.apple.com', 'other.mzstatic.com',
                        'push.apple.com', 'time.apple.com',
                        'example-apple-relay.invalid', 'unrelated.auth0.com', 'stripe.com']:
             with self.subTest(domain=domain):
@@ -69,7 +69,11 @@ class RulesTests(unittest.TestCase):
                    'apple-relay.fastly-edge.com', 'apple-relay.cloudflare.com',
                    'guzzoni.apple.com', 'cp4.cloudflare.com', 'gspe1-ssl.ls.apple.com',
                    'smoot.apple.com', 'apple-relay.akamaized.net',
-                   'apple-relay.mask.apple-dns.net', 'api-siri-prod.apple.com']
+                   'apple-relay.mask.apple-dns.net', 'api-siri-prod.apple.com',
+                   'mask-api.fe.apple-dns.net', 'mask-api.icloud.com',
+                   'mask-t.apple-dns.net', 'mask.apple-dns.net', 'ls.apple.com',
+                   'mask-h2.icloud.com', 'mask.icloud.com', 'apps.mzstatic.com',
+                   'siri.apple.com']
         rules = entries(ROOT / 'rules/local/Apple.list')
         generated = yaml.safe_load((ROOT / 'rules/clash/Apple.yaml').read_text())['payload']
         self.assertEqual(generated, rules)
@@ -80,7 +84,7 @@ class RulesTests(unittest.TestCase):
                     first = next((group for group, path in local_rules()
                                   if any(matches(rule, host) for rule in entries(path))), None)
                     self.assertEqual(first, AI)
-            self.assertFalse(any(matches(rule, 'unrelated-' + domain) for rule in rules))
+            self.assertFalse(matches('DOMAIN-SUFFIX,' + domain, 'unrelated-' + domain))
         sources = [line for line in template() if line.startswith('ruleset=')]
         ai = next(i for i, line in enumerate(sources) if line.startswith('ruleset=' + AI + ','))
         self.assertTrue(all(line.startswith('ruleset=DIRECT,') or line == 'ruleset=🍎 Apple,[]DOMAIN,gateway.icloud.com' for line in sources[:ai]))

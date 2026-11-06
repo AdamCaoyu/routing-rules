@@ -10,7 +10,7 @@
 - Google → `DNS-Google-Auto` → `DNS-Google-TW` 台湾候选，全部检测失败时尝试「美国节点」。
 - 两家解析服务独立使用各自检测路径；后台每 300 秒用真实 DoH 查询地址检查。候选按顺序回退，不保证选中最低延迟节点，也不保证故障瞬间切换。模板传入 4 秒超时参数，但当前转换后端未在 YAML 输出 `timeout`，此时采用内核默认超时。
 - DNS 之外的业务仍按原来的服务策略组分流。GitHub 不增设专用回退组，继续使用原有「GitHub」选择卡。
-- 直连出口使用 `direct-nameserver` 的两条阿里 HTTPS DNS，`direct-nameserver-follow-policy: false`，不再依赖逐条维护 Apple 域名 DNS 例外。Apple 为 DIRECT 时，建连解析走阿里；Apple / Apple Intelligence 走代理时，若内核需要解析，使用默认海外双 DNS（没有强制 Apple 走阿里的 policy）。`gateway.icloud.com` 的精确流量规则仍在 Apple Intelligence 后缀规则之前，未改变业务归属。
+- 直连出口使用 `direct-nameserver` 的两条阿里 HTTPS DNS，`direct-nameserver-follow-policy: false`，不再依赖逐条维护 Apple 域名 DNS 例外。Apple 为 DIRECT 时，建连解析走阿里；Apple / Apple Intelligence 走代理时，若内核需要解析，使用默认海外双 DNS（没有强制 Apple 走阿里的 policy）。2026-11-06 按用户提供的社区规则试验移除了 `gateway.icloud.com` 的 Apple 精确覆盖，现在裸域名与子域名都按 Apple Intelligence 处理。
 - `nameserver-policy` 保留 4 条：`geosite:cn` 用阿里直连，`geosite:netflix` / `geosite:hbo` / `geosite:tiktok` 分别经现有「🎥 Netflix」「🎬 HBO」「👯‍♂️ TikTok」服务组查询 Cloudflare / Google。服务组选新加坡 / 美国时，DNS 使用对应选择；以后切地区无需改 DNS。服务组默认值未修改，新设备应自行选择地区。绑定同组不保证两个不同服务器的探测结果、出口公网 IP 或 CDN 所在国家完全相同。
 - 保留 `geosite:cn` 是为了 OpenClash 将国内域名加入 `fake-ip-filter` 等场景：返回真实 IP 的 DNS 查询发生在业务选路之前，不能只靠 `direct-nameserver`。流媒体 geosite 依赖设备的数据文件，不能把 `geodata-loader: standard` 当作数据包含这几类的证明；本地 Extra 规则中未被 geosite 收录的 CDN 仍使用默认 DNS。
 - 节点域名的启动解析使用国内 HTTPS DNS，避免必须先通过代理才能解析代理节点的循环依赖。
