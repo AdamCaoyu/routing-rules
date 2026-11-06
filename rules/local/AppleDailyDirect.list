@@ -1,0 +1,19 @@
+# Verified Apple media/download DIRECT paths; keep Apple Intelligence before this provider.
+# Shared iCloud/authentication domains and general aaplimg.com/akadns.net are excluded.
+DOMAIN-SUFFIX,tv.apple.com
+DOMAIN-SUFFIX,apps.apple.com
+DOMAIN-SUFFIX,mzstatic.com
+DOMAIN-SUFFIX,music.apple.com
+DOMAIN-SUFFIX,itunes.apple.com
+DOMAIN-SUFFIX,itunes-apple.com.akadns.net
+DOMAIN-SUFFIX,updates.cdn-apple.com
+DOMAIN-SUFFIX,updates-http.cdn-apple.com
+DOMAIN,amp-api.videos.apple.com
+DOMAIN,appldnld.apple.com
+DOMAIN,mesu.apple.com
+DOMAIN,swcdn.apple.com
+DOMAIN,swdownload.apple.com
+DOMAIN,swdist.apple.com
+DOMAIN,oscdn.apple.com
+DOMAIN,streamingaudio.g.aaplimg.com
+DOMAIN,aod.itunes.g.aaplimg.com

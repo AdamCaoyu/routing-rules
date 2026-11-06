@@ -45,3 +45,49 @@ DNS 修改 `scripts/generate_dns.py`；业务域名归属另改 `rules/local/`�
 基础模板现明确配置 HTTP 与 TLS 域名识别，保留原目标地址，不做 HTTPS 解密。另在具体业务规则之后、通用云平台及最终兜底之前加入 GitHub 官方 Meta API 的 web / api / git 地址范围，使用 no-resolve 并交给原「GitHub」策略组。没有新增 GitHub 专用节点组，也没有将全部 HTTPS 流量改走代理。
 
 `rules/filtered/GitHubIPs.yaml` 由现有每日来源更新流程维护；不导入 Actions/runner 的大范围共享云地址。官方数据缺失、包含异常宽网段或数量骤减时停止发布并保留已有文件。域名识别受请求协议、加密客户端问候等因素限制，因此仍需要纯 IP 兜底。该修复针对已确认的分流缺口，不保证节点或所有目标永不超时。
+
+
+## 2026-11-07：DNS 出口核查与明文 DNS 兜底防护
+
+IPLeak 显示的是其探针域名最终到达权威端时的递归解析器出口，不等于客户端直接连接了列表中的每个地址。独立探针已复现：通过 `https://223.5.5.5/dns-query`、`https://223.6.6.6/dns-query` 和 `https://dns.alidns.com/dns-query` 请求一个新域名，IPLeak 均可能记录运营商地址。因此该地址可以来自阿里 DoH 后续解析链路；这不能单独证明本机绕过了 DoH，更不能据此推断 Siri/GPT 的 DNS 泄漏。多次测试结果属于当时网络，不保证其他地区、时段相同。
+
+当前采用按需分流，未命中业务规则的流量仍直连。IPLeak 自身实测命中 `DST-PORT,443,DIRECT`，因此会看到本地公网 IPv4/IPv6；本次不为让测试页面变绿而改变全局兜底策略。直连业务的阿里 DoH、默认海外 Cloudflare/Google 独立回退、流媒体同组选区均保留；DNS 出口不会自动等于每个 Apple 业务节点。
+
+OpenWrt 部署另外增加了以下两条防火墙防护（**设备部署设置，不会因下载订阅自动安装**）：保留 LAN 的 IPv4/IPv6、TCP/UDP 53 接管至 dnsmasq/Mihomo；阻断仍试图从 LAN 或路由器本机直接到 WAN 的 TCP/UDP 53。这样，应用显式指定 WAN 明文 DNS 或将来接管意外失效时，不会静默回退到 WAN 明文 DNS。正常路由器查询继续使用 HTTPS DNS。
+
+对应 UCI 段如下；使用前核对设备的 LAN/WAN 区域名称，并检查是否有依赖外部明文 DNS 的特殊程序：
+
+```uci
+config rule 'caoyu_dns_guard_lan'
+    option name 'Caoyu-Block-Plain-DNS-LAN-WAN'
+    option src 'lan'
+    option dest 'wan'
+    option proto 'tcp udp'
+    option dest_port '53'
+    option family 'any'
+    option target 'REJECT'
+    option enabled '1'
+
+config rule 'caoyu_dns_guard_router'
+    option name 'Caoyu-Block-Plain-DNS-Router-WAN'
+    option dest 'wan'
+    option proto 'tcp udp'
+    option dest_port '53'
+    option family 'any'
+    option target 'REJECT'
+    option enabled '1'
+```
+
+防护有意拒绝明文回退：若加密上游全部失效，DNS 可能失败，而不是恢复 ISP 明文解析。它不阻止应用自行使用 HTTPS/DoT，也不控制代理服务器内部的 DNS；不能据此承诺全局匿名。DoH 加密、业务代理选路、WebRTC、公网 IPv6 暴露是不同问题，需要分别验证。回退此防护时仅删除上述两个命名段并重新应用防火墙；保留原有接管规则。
+
+本机原有 Passwall 防火墙附加脚本在整套防火墙 reload 时返回失败，初次事务已回退。最终安装通过 `fw4 check`、按 UCI 编译结果校验后原子加载这两组规则，并提交 UCI，未改动其他插件。后续全量 reload 的该插件报错仍需独立维护；这两组规则本身的编译、持久配置和当前运行规则已验证。
+
+参考：[Mihomo DNS](https://wiki.metacubex.one/config/dns/)、[IPLeak 解释](https://ipleak.net/#dnsleak)、[OpenWrt DNS 接管](https://openwrt.org/docs/guide-user/firewall/fw3_configurations/intercept_dns)。
+
+## Apple 日常媒体与 AI 路径分离
+
+`rules/local/AppleDailyDirect.list` 保留已验证的媒体、封面、商店和更新端点，经生成器输出为 `rules/clash/AppleDailyDirect.yaml` 与 Shadowrocket 原生 provider。顺序为 Apple Intelligence 优先、日常媒体 DIRECT、普通 Apple；不会把整个 `aaplimg.com`、`akadns.net`、`icloud.com`、`icloud-content.com` 改成直连。
+
+其中 `streamingaudio.g.aaplimg.com` 与 `aod.itunes.g.aaplimg.com` 是从实际音频连接确认的精确补充；后者曾有超过 10 MB 数据走普通 Apple 台湾，补直连后用户反馈等待改善，日志确认两者 DIRECT。Apple TV 视频流 `vod-ap-aoc.tv.apple.com`、接口 `uts-api.itunes.apple.com` 和授权 `cma2.itunes.apple.com` 也已实测 DIRECT。
+
+这是已验证范围的优化，尚未定位本机 Siri 内 GPT 所需代理的最小域名集合，iCloud 照片/文件精细分流仍待继续。该设备当前保留普通 Apple 选台湾、Intelligence 通过 ChatGPT 选台湾；仓库的通用分组默认值不强行替换其他用户的选择。更新订阅需保留这台设备已验证的策略组选择。后台网络检查不等于设备上的 Siri/GPT、照片同步或实际播放复测。

@@ -21,6 +21,16 @@
       "sha256": "7ff06e5815de727a3177399ca00d57bd01d5451edd8c64358ff51d5e218ea9ca"
     },
     {
+      "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/AppleDailyDirect.yaml",
+      "format": "clash-classic",
+      "count": 17,
+      "removed_process_rules": 0,
+      "source_sha256": "da8a6a255bebf368d3a92b287110933166b4baf5b9940747636ec2171a77e42a",
+      "file": "AppleDailyDirect-e9131c08d45d.list",
+      "policy": "DIRECT",
+      "sha256": "bf70ea9ef62beaf4142fa4259e2b47550aa2fa5588d1a625fe13753a8d73de64"
+    },
+    {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/ChatGPT.yaml",
       "format": "clash-classic",
       "count": 16,

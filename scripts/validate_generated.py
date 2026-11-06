@@ -18,7 +18,11 @@ for resolver in config['dns']['nameserver']:
     assert groups[name]['interval'] == 300
     assert '?dns=' in groups[name]['url']
     assert not any(p in {'DIRECT', '🌍 国外'} for p in groups[name]['proxies'])
-assert config['dns']['nameserver-policy']['gateway.icloud.com'][0].endswith('#DIRECT')
+assert 'gateway.icloud.com' not in config['dns']['nameserver-policy']
+assert set(config['dns']['nameserver-policy']) == {'geosite:cn', 'geosite:netflix', 'geosite:hbo', 'geosite:tiktok'}
+assert config['dns']['direct-nameserver-follow-policy'] is False
+assert config['dns']['direct-nameserver'] == config['dns']['proxy-server-nameserver']
+assert all(url.startswith('https://') and url.endswith('#DIRECT') for url in config['dns']['direct-nameserver'])
 ai = '🍏 Apple Intelligence'
 for name in ['所有','香港','台湾','日本','新加坡','韩国','美国','其他']:
     g = groups[name+'-自动']
@@ -62,7 +66,10 @@ for rule in config['rules']:
     provider = config['rule-providers'][fields[1]]
     assert provider['interval'] == 86400
     assert '/getruleset' not in provider['url'], 'Provider depends on converter at runtime'
-    fixture = Path(sys.argv[2]) / Path(urlparse(provider['url']).path).name
+    # Provider names avoid collisions such as geosite/netflix.yaml vs geoip/netflix.yaml.
+    fixture = Path(sys.argv[2]) / (fields[1] + '.yaml')
+    if not fixture.is_file():
+        fixture = Path(sys.argv[2]) / Path(urlparse(provider['url']).path).name
     payload = yaml.safe_load(fixture.read_text())['payload']
     for entry in payload:
         if provider['behavior'] == 'domain':
@@ -89,7 +96,7 @@ def first_domain_match(domain):
             return parts[2]
 
 cases = {}
-cases['gateway.icloud.com'] = '🍎 Apple'
+cases['gateway.icloud.com'] = ai
 for domain in ['gateway.icloud.com', 'apple-relay.apple.com',
                'apple-relay.fastly-edge.com', 'apple-relay.cloudflare.com',
                'guzzoni.apple.com', 'cp4.cloudflare.com', 'gspe1-ssl.ls.apple.com']:
@@ -102,7 +109,14 @@ for domain in ['guzzoni.apple.com', 'api.smoot.apple.com', 'apple-relay.apple.co
 for domain in ['www.apple.com', 'apps.mzstatic.com',
                'push.apple.com', 'time.apple.com']:
     cases[domain] = '🍎 Apple'
-cases['gateway.icloud.com'] = '🍎 Apple'
+cases['gateway.icloud.com'] = ai
+cases['apps.mzstatic.com'] = ai
+cases['other.mzstatic.com'] = 'DIRECT'
+for domain in ['vod-ap-aoc.tv.apple.com', 'amp-api.videos.apple.com',
+               'aod.itunes.g.aaplimg.com', 'streamingaudio.g.aaplimg.com',
+               'amp-api-music-lb.itunes-apple.com.akadns.net']:
+    cases[domain] = 'DIRECT'
+
 cases.update({'chatgpt.com':'💬 ChatGPT','auth.openai.com':'💬 ChatGPT',
               'cdn.oaistatic.com':'💬 ChatGPT','files.oaiusercontent.com':'💬 ChatGPT',
               'chatgpt.livekit.cloud':'💬 ChatGPT','openaiassets.blob.core.windows.net':'💬 ChatGPT',
