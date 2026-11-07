@@ -1,5 +1,10 @@
 # Converted for Shadowrocket; Source: https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/GitHubIPs.yaml
 # Attribution: blackmatrix7/ios_rule_script; see sources.json and repository licenses.
+IP-CIDR,4.149.173.80/28,no-resolve
+IP-CIDR,4.186.157.192/28,no-resolve
+IP-CIDR,4.187.247.160/28,no-resolve
+IP-CIDR,4.195.217.80/28,no-resolve
+IP-CIDR,4.196.32.112/28,no-resolve
 IP-CIDR,4.208.26.193/32,no-resolve
 IP-CIDR,4.208.26.197/32,no-resolve
 IP-CIDR,4.208.26.198/32,no-resolve
@@ -8,10 +13,12 @@ IP-CIDR,4.225.11.194/32,no-resolve
 IP-CIDR,4.225.11.199/32,no-resolve
 IP-CIDR,4.225.11.200/32,no-resolve
 IP-CIDR,4.225.11.201/32,no-resolve
+IP-CIDR,4.225.187.240/28,no-resolve
 IP-CIDR,4.228.31.144/32,no-resolve
 IP-CIDR,4.228.31.145/32,no-resolve
 IP-CIDR,4.228.31.149/32,no-resolve
 IP-CIDR,4.228.31.150/32,no-resolve
+IP-CIDR,4.236.95.112/28,no-resolve
 IP-CIDR,4.237.22.34/32,no-resolve
 IP-CIDR,4.237.22.36/32,no-resolve
 IP-CIDR,4.237.22.38/32,no-resolve
@@ -23,6 +30,7 @@ IP-CIDR,20.26.156.210/32,no-resolve
 IP-CIDR,20.26.156.213/32,no-resolve
 IP-CIDR,20.26.156.214/32,no-resolve
 IP-CIDR,20.26.156.215/32,no-resolve
+IP-CIDR,20.27.163.208/28,no-resolve
 IP-CIDR,20.27.177.113/32,no-resolve
 IP-CIDR,20.27.177.116/32,no-resolve
 IP-CIDR,20.27.177.118/32,no-resolve
@@ -35,6 +43,8 @@ IP-CIDR,20.87.245.0/32,no-resolve
 IP-CIDR,20.87.245.2/32,no-resolve
 IP-CIDR,20.87.245.4/32,no-resolve
 IP-CIDR,20.87.245.6/32,no-resolve
+IP-CIDR,20.169.109.160/28,no-resolve
+IP-CIDR,20.172.24.160/28,no-resolve
 IP-CIDR,20.175.192.146/32,no-resolve
 IP-CIDR,20.175.192.147/32,no-resolve
 IP-CIDR,20.175.192.149/32,no-resolve
@@ -67,18 +77,32 @@ IP-CIDR,20.233.83.149/32,no-resolve
 IP-CIDR,20.250.119.67/32,no-resolve
 IP-CIDR,20.250.119.68/32,no-resolve
 IP-CIDR,20.250.119.72/32,no-resolve
+IP-CIDR,40.121.125.32/28,no-resolve
+IP-CIDR,40.121.125.128/28,no-resolve
+IP-CIDR,40.121.125.144/28,no-resolve
+IP-CIDR,40.121.125.160/28,no-resolve
+IP-CIDR,40.121.125.176/28,no-resolve
+IP-CIDR,40.121.125.192/28,no-resolve
+IP-CIDR,40.121.125.208/28,no-resolve
+IP-CIDR,48.200.82.112/28,no-resolve
+IP-CIDR,48.202.10.80/28,no-resolve
 IP-CIDR,48.202.248.38/32,no-resolve
 IP-CIDR,48.202.248.39/32,no-resolve
 IP-CIDR,48.202.248.40/32,no-resolve
 IP-CIDR,48.204.201.2/32,no-resolve
 IP-CIDR,48.204.201.5/32,no-resolve
 IP-CIDR,48.204.201.6/32,no-resolve
+IP-CIDR,135.235.149.144/28,no-resolve
 IP-CIDR,140.82.112.0/20,no-resolve
 IP-CIDR,143.55.64.0/20,no-resolve
+IP-CIDR,172.130.153.16/28,no-resolve
+IP-CIDR,172.130.201.80/28,no-resolve
 IP-CIDR,172.182.252.130/32,no-resolve
 IP-CIDR,172.182.252.133/32,no-resolve
 IP-CIDR,172.182.252.135/32,no-resolve
 IP-CIDR,172.182.252.137/32,no-resolve
+IP-CIDR,172.194.155.208/28,no-resolve
+IP-CIDR,172.194.218.192/28,no-resolve
 IP-CIDR,185.199.108.0/22,no-resolve
 IP-CIDR,192.30.252.0/22,no-resolve
 IP-CIDR6,2606:50c0::/32,no-resolve

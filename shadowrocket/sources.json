@@ -225,10 +225,10 @@
       "format": "clash-domain",
       "count": 224,
       "removed_process_rules": 0,
-      "source_sha256": "2da23ea7980af64b9506d2b769dd576508381dda1c2ccbc598e41724de4a925c",
+      "source_sha256": "228d84391d452cf7a245b600eeef6927934159316bb13995ddfc451b748e8827",
       "file": "21-disney.list",
       "policy": "📺 Disney",
-      "sha256": "155e4516f78b47e43364273693b4cc2b299f3eb7907d2227dd98d50b65f563e4"
+      "sha256": "7eee508ee40110b4336280b8ce36725035653361848d12de39e3f592094a7456"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/NetflixExtra.yaml",
@@ -355,10 +355,10 @@
       "format": "clash-classic",
       "count": 209,
       "removed_process_rules": 0,
-      "source_sha256": "db79cce11692ae5cabebea598741732bf3ecbfff8442ba98e3d09e1acc2ea93d",
+      "source_sha256": "bc1df985b435bccd8fa75b1271fc6ee528ddf311dece8d24e6fb62471c8c6786",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "a93bf4a2a25d0b633954fb90c8a7229e7ffc2b9431a3bacddaac9fd2b7c8112f"
+      "sha256": "9d47209b9116c3d53c91ee1d4e4a0a65b0b8764cf814dc9e086ae0969c9264c2"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
@@ -463,12 +463,12 @@
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/GitHubIPs.yaml",
       "format": "clash-classic",
-      "count": 83,
+      "count": 107,
       "removed_process_rules": 0,
-      "source_sha256": "48caf618e87942132c8cb2463bf9f8459acc0f5e08c99451a0c123a29959be8e",
+      "source_sha256": "bcb5554dd22b716d420f07b54a9aa3ebb56057e68d985f584c382627025a904d",
       "file": "45-GitHubIPs.list",
       "policy": "📘 GitHub",
-      "sha256": "c167368984b371c64a9b33836fdebc378cf3ee4914df51a3c642bcd32d7794bd"
+      "sha256": "ef3ae4717d893370e37820aa761f3992016f516ecc3d396832cbbf5e5e87f768"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AmazonServices.yaml",
