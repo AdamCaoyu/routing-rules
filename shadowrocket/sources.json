@@ -63,22 +63,22 @@
     {
       "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/xai.yaml",
       "format": "clash-domain",
-      "count": 4,
+      "count": 5,
       "removed_process_rules": 0,
-      "source_sha256": "bc278d0ddab487db1db20b84289007acde3730917f67fdbd093bc8bebb8b4c91",
+      "source_sha256": "29e0d3952dbd17c8e6cc42c4b6f427d4d796ccfe4a58fd23a3dea92a949ea252",
       "file": "05-xai.list",
       "policy": "🤖 Grok",
-      "sha256": "3d70f6f340eb0f49cc8d9a516d3e1111a0481dee9664a6ae92b04cf25d59ac90"
+      "sha256": "8e83259dbcb302e959f8c90bfd7644c2e32fd73073cffba5e7eac124803459ea"
     },
     {
       "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/anthropic.yaml",
       "format": "clash-domain",
-      "count": 19,
+      "count": 21,
       "removed_process_rules": 0,
-      "source_sha256": "b076801f5903f02d8976ebf82a2e7a7868e772a0e4dbaa12a7154f2d756a760a",
+      "source_sha256": "ff53ece5feaab75a13455c467ff405f036a774a4c95cc068316500ebf9d78496",
       "file": "06-anthropic.list",
       "policy": "🧠 Claude",
-      "sha256": "be83e175d099ee2b82d702efa8be2cb8bba97c1c709b2fc9cbf8e26d535fdc58"
+      "sha256": "a2296024295b2d9744f412813ad632ef2cf51194e33e1a4876c03cb49f8901e6"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/MetaAI.yaml",
@@ -103,12 +103,12 @@
     {
       "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github-copilot.yaml",
       "format": "clash-domain",
-      "count": 6,
+      "count": 7,
       "removed_process_rules": 0,
-      "source_sha256": "1dcfbf4834533d757e3fc85cec2a79bd033bcf2746d32c0efd10db5502ebd3ce",
+      "source_sha256": "ff10917bbda32529b6c9d304a59810da6a006873e650a0914c2b1104a50df9ed",
       "file": "09-github-copilot.list",
       "policy": "📘 GitHub",
-      "sha256": "69fb26db129560b36d4278d5b1ee1f23d68e4eae5306e92fce372592c6b44ba9"
+      "sha256": "2326a778f85285103bc18364338ef728c4dc1d303daf42ffd513be1c017cfc04"
     },
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml",
@@ -225,10 +225,10 @@
       "format": "clash-domain",
       "count": 224,
       "removed_process_rules": 0,
-      "source_sha256": "228d84391d452cf7a245b600eeef6927934159316bb13995ddfc451b748e8827",
+      "source_sha256": "8931d356f6fdd841a74cbc0bd19f32c1b8a2e97f27ab0e5dc2116b84d9c519d2",
       "file": "21-disney.list",
       "policy": "📺 Disney",
-      "sha256": "7eee508ee40110b4336280b8ce36725035653361848d12de39e3f592094a7456"
+      "sha256": "27e83fdc9d8e511a721f3ea477c32ba7d829eefc23c1028e52eba10c8608c836"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/NetflixExtra.yaml",
@@ -353,12 +353,12 @@
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/OtherAI.yaml",
       "format": "clash-classic",
-      "count": 209,
+      "count": 213,
       "removed_process_rules": 0,
-      "source_sha256": "bc1df985b435bccd8fa75b1271fc6ee528ddf311dece8d24e6fb62471c8c6786",
+      "source_sha256": "514496d196b8083757556579a04ba341c27468c9c21db067bd77d599ce378d3c",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "9d47209b9116c3d53c91ee1d4e4a0a65b0b8764cf814dc9e086ae0969c9264c2"
+      "sha256": "c64ba32b1a0c0476672f8546134dc469088a8dd4f8557d5d6c2dc30ddbb0f520"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
