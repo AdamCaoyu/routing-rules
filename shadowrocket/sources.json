@@ -355,10 +355,10 @@
       "format": "clash-classic",
       "count": 213,
       "removed_process_rules": 0,
-      "source_sha256": "59cd2388a3a51c8eda6c4097d30c1cdd064ffe1a22cda470ea5f373aa2ff26bd",
+      "source_sha256": "1f4e95f6c08c953314d88139274a6a9da8e5b0d033a4085fd877a9dfacd3ef7a",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "cacf903ad808078e2de875e4f93aaf112d6b7e2ed466447f938646863cdfab61"
+      "sha256": "feb393b93e6a1f926eb89a6b842964ca569f02f87eac7924cde972d5f8568f4d"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
@@ -463,12 +463,12 @@
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/GitHubIPs.yaml",
       "format": "clash-classic",
-      "count": 107,
+      "count": 112,
       "removed_process_rules": 0,
-      "source_sha256": "bcb5554dd22b716d420f07b54a9aa3ebb56057e68d985f584c382627025a904d",
+      "source_sha256": "b9ba7e09184be5c05ff7371d7a9400bdd9fe09084941575a75385c2aa7289e15",
       "file": "45-GitHubIPs.list",
       "policy": "📘 GitHub",
-      "sha256": "ef3ae4717d893370e37820aa761f3992016f516ecc3d396832cbbf5e5e87f768"
+      "sha256": "4bb1975435bf3bfe041ee3190f93c03f8de6de4bc057b6dc0bfad2e40aeba856"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AmazonServices.yaml",
