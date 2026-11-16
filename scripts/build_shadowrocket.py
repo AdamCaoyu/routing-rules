@@ -100,7 +100,7 @@ def region_group_lines(regions):
     lines = []
     for region, pattern in regions.items():
         lines.append(region + '节点 = select,' + region + '-自动,policy-regex-filter=' + pattern + ',policy-select-name=' + region + '-自动')
-        lines.append(region + '-自动 = url-test,REJECT,policy-regex-filter=' + pattern + ',url=http://www.gstatic.com/generate_204,interval=600,tolerance=100,timeout=5,hidden=1')
+        lines.append(region + '-自动 = url-test,REJECT,policy-regex-filter=' + pattern + ',url=https://www.gstatic.com/generate_204,interval=600,tolerance=100,timeout=5,hidden=1')
     return lines
 
 

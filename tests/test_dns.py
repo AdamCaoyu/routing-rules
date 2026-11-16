@@ -2,11 +2,30 @@
 from pathlib import Path
 import unittest
 import yaml
+import re
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+from generate_groups import build_groups
 
 
 class DnsTests(unittest.TestCase):
+    def test_taiwan_dns_uses_exit_region_instead_of_transit_name(self):
+        rows = [row for row in build_groups().splitlines()
+                if row.startswith(('custom_proxy_group=DNS-CF-TW`',
+                                   'custom_proxy_group=DNS-Google-TW`'))]
+        self.assertEqual(len(rows), 2)
+        for row in rows:
+            pattern = row.split('`')[2]
+            for node, expected in [('US🔛❻gR.TW闪电', False),
+                                   ('HK🔛❻gR.TW台北', False),
+                                   ('🇺🇸 TW台北', False),
+                                   ('TW🔛US节点', True),
+                                   ('❸TW.暴雨|VS|AI x0.2', True),
+                                   ('❻gR.TW台北', True)]:
+                self.assertEqual(bool(re.search(pattern, node)), expected, node)
+
     def test_template_loads_dns_base_and_contains_matching_groups(self):
         text = (ROOT / 'Clash-Full.ini').read_text()
         self.assertTrue('clash_rule_base=https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/config/clash-base.yaml' in text)

@@ -19,17 +19,27 @@ class RegionTests(unittest.TestCase):
 
     def test_name_classification_is_exclusive(self):
         cases={
-            'US🔛❻gR.TW台北|AI':'台湾','HK🔛❻gR.US王者':'美国',
+            'US🔛❻gR.TW台北|AI':'美国','HK🔛❻gR.US王者':'香港',
             '❶gR.HKT节点':'香港','❻gR.TW节点':'台湾','❷TJ.JP节点':'日本',
             '❸gR.SG节点':'新加坡','KR Seoul':'韩国','❻gR.US节点':'美国',
             '❶TJ.RU节点':'其他','❶TJ.UK节点':'其他','❸gR.TR节点':'其他',
             'US Test':'美国','us test':'美国','Taiwan 01':'台湾',
             '🇯🇵 JP 01':'日本','香港 HKT 01':'香港',
-            'JP US 双标记':None,'ZZ🔛TW台北':'台湾','RUS Test':None,
-            '无地区标记':None,'US🔛无地区标记':None,
-            'US🔛TW台北':'台湾','US🔛HK🔛TW台北':'台湾',
-            'US🔛JP节点':'日本','US🔛SG节点':'新加坡',
+            'JP US 双标记':'日本','ZZ🔛TW台北':'台湾','RUS Test':None,
+            '无地区标记':None,'US🔛无地区标记':'美国',
+            'US🔛TW台北':'美国','US🔛HK🔛TW台北':'美国',
+            'US🔛JP节点':'美国','US🔛SG节点':'美国',
             'US🔛US王者':'美国','CN1•❸gR.TW台北':'台湾',
+            '🇺🇸❻gR.TW台北':'美国','🇭🇰 US王者':'香港',
+            '🇹🇼 US🔛香港':'台湾','🇩🇪 TW台湾':'其他',
+            '❶DE.得果|VS|NF*|AI x0.2':'其他',
+            '❶FR.花果|XH|NF*|AI x0.2':'其他',
+            '❶UK.因果|TLS|NF*|AI x0.2':'其他',
+            '❶US.霉西|Beta|VS|NF*|AI x0.2':'美国',
+            '❸TW.暴雨|Beta|XH|NF|D+|AI x0.2':'台湾',
+            '❻TW.RV剑魂|VS|NF|D+|AI x0.1':'台湾',
+            '节点 JP US 双标记':None,'xH未知节点':None,
+            '01 US🔛TW台北':'美国','🇨🇱 TW台北':'其他',
         }
         for name,expected in cases.items():
             hits=[region for region,pattern in g.region_patterns().items() if re.search(pattern,name)]
@@ -38,7 +48,7 @@ class RegionTests(unittest.TestCase):
     def test_status_labels_do_not_exclude_nodes(self):
         cases={'US 下载专用':'美国','US 备用':'美国','US 公益':'美国',
                '◈耗尽◈BR 巴西':'其他','香港 维护':'香港','TW 被墙':'台湾',
-               'US🔛TW 失效':'台湾','US 过期':'美国'}
+               'US🔛TW 失效':'美国','US 过期':'美国'}
         for name,region in cases.items():
             self.assertIsNotNone(re.search(g.eligible_pattern(),name),name)
             hits=[r for r,p in g.region_patterns().items() if re.search(p,name)]

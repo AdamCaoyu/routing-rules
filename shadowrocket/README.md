@@ -34,6 +34,8 @@ RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.li
 
 ## 苹果设备设置
 
+地区筛选与 OpenClash 共用出口优先规则：开头旗帜或英文国家缩写优先，例如 `US🔛…TW台北` 属于美国、`HK🔛…US王者` 属于香港。没有开头出口标记才按正文归类。DE、FR、UK 等进入“其他节点”，`x0.1`、`x0.2` 等倍率不影响分组。地区测速统一使用 HTTPS gstatic 地址。
+
 保留原配置的系统联网绕过、国内 DoH、系统备用 DNS、IPv6 开启且不优先 IPv6、HOME 包含路由及不支持 UDP 时 REJECT 的行为。地区自动组每 600 秒测速，公差 100 毫秒；选择低延迟可用节点，避免因微小波动反复切换。地区选择组为 select，直接点选具体节点后不按后台测速自动切换。OpenClash 的自动组和测速参数保持原样。
 
 优化版移除全局 `*.apple.com` / `*.icloud.com → system DNS` 的 Host 覆盖，让 Apple Intelligence 和普通 Apple 使用同一套可配置 DNS。关闭 `dns-direct-fallback-proxy`，避免直连 DNS 失败时隐式经代理重试；网络对 DoH 不可达时可能需要调整 DNS。保留系统备用 DNS，不承诺消除全部 DNS 泄漏。

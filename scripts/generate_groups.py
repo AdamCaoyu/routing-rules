@@ -24,19 +24,32 @@ def marker(region):
     names='|'.join(re.escape(s) for s in region['names'])
     return '(?:(?<![A-Za-z])(?:'+codes+')(?![A-Za-z])|'+names+')'
 
+def exit_prefix(region):
+    codes='|'.join(re.escape(s) for s in sorted(region['codes'], key=len, reverse=True))
+    flags='|'.join(re.escape(s) for s in region['names']
+                   if len(s)==2 and all('🇦' <= c <= '🇿' for c in s))
+    return '(?:'+flags+'|(?:'+codes+')(?![A-Za-z]))'
+
 def region_patterns():
     config=settings()
     regions=config['regions']
-    guard='(?i)^'  # Region classification only; no status-word exclusions.
+    # Skip decorative glyphs, but never swallow a country flag or name/code.
+    padding='[^A-Za-z\u3400-\u9fff🇦-🇿]*'
+    exits={name:exit_prefix(r) for name,r in regions.items()}
+    primary_flags='|'.join(re.escape(s) for name,r in regions.items() if name!='其他'
+                           for s in r['names'] if len(s)==2 and all('🇦'<=c<='🇿' for c in s))
+    # Every other leading country flag is an "other" exit, never a transit hint.
+    exits['其他']='(?:'+exits['其他']+'|(?!(?:'+primary_flags+'))[🇦-🇿]{2})'
+    prefixes='|'.join(exits.values())
     result={}
     for name,region in regions.items():
         own=marker(region)
         other='|'.join(marker(r) for n,r in regions.items() if n!=name)
-        # The user clarified that XX🔛 is a forwarding label, not the
-        # region to classify. Consume all such leading labels before matching.
-        # The negative lookahead prevents backtracking into a consumed label.
-        relay='(?:[A-Za-z]{2,3}🔛)*(?![A-Za-z]{2,3}🔛)'
-        result[name]=guard+relay+'(?!.*(?:'+other+'))(?=.*'+own+').+$'
+        # The leading flag/code is the confirmed exit, including XX🔛 nodes.
+        # Only names without such a prefix fall back to unambiguous body markers.
+        explicit=padding+exits[name]+'.*'
+        fallback='(?!'+padding+'(?:'+prefixes+'))(?!.*(?:'+other+'))(?=.*'+own+').+'
+        result[name]='(?i)^(?:'+explicit+'|'+fallback+')$'
     return result
 
 def build_groups():
@@ -56,7 +69,7 @@ def build_groups():
     rows+=['','; 自动测速辅助组。日常在上面的地区节点卡片操作即可。']
     for name,pattern in regions.items():
         rows.append('custom_proxy_group='+name+'-自动`url-test`'+pattern+'`[]REJECT`https://www.gstatic.com/generate_204`180,5,100')
-    rows += dns_group_lines()
+    rows += dns_group_lines(regions['台湾'])
     return '\n'.join(rows)+'\n'
 
 if __name__=='__main__':

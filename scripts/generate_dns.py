@@ -9,7 +9,6 @@ RESOLVERS = [('CF', 'https://cloudflare-dns.com/dns-query'),
 DOMESTIC = ['https://223.5.5.5/dns-query#DIRECT',
             'https://223.6.6.6/dns-query#DIRECT']
 SERVICE_DNS = {'netflix': '🎥 Netflix', 'hbo': '🎬 HBO', 'tiktok': '👯‍♂️ TikTok'}
-TAIWAN = '(?i)(TW|台湾|台灣|Taiwan|台北|新北|桃园|桃園|彰化|🇹🇼)'
 
 
 def dns_config():
@@ -31,11 +30,11 @@ def dns_config():
             'nameserver': upstream, 'nameserver-policy': policy}
 
 
-def group_lines():
+def group_lines(taiwan_pattern):
     rows = ['', '; DNS only: check actual DoH URLs; Taiwan first, US backup.']
     for name, url in RESOLVERS:
         prefix = 'DNS-' + name
-        rows.append('custom_proxy_group=' + prefix + '-TW`fallback`' + TAIWAN
+        rows.append('custom_proxy_group=' + prefix + '-TW`fallback`' + taiwan_pattern
                     + '`[]REJECT`' + url + WIRE + '`300,4')
         rows.append('custom_proxy_group=' + prefix + '-Auto`fallback`[]'
                     + prefix + '-TW`[]美国节点`' + url + WIRE + '`300,4')

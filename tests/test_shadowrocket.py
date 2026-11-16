@@ -40,7 +40,7 @@ class ShadowrocketTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             build.normalized('DOMAIN-WILDCARD,*.example.com', 'clash-classic')
 
-    def test_region_regex_keeps_forwarding_prefix_behavior_without_option_commas(self):
+    def test_region_regex_uses_exit_prefix_without_option_commas(self):
         import re
         lines = build.group_lines()
         patterns = {}
@@ -49,11 +49,19 @@ class ShadowrocketTests(unittest.TestCase):
             if name.endswith('节点'):
                 field = next(p for p in body.split(',') if p.startswith('policy-regex-filter='))
                 patterns[name] = field.split('=', 1)[1]
-        for node, region in [('US🔛TW台北', '台湾节点'), ('HK🔛US王者', '美国节点'),
-                             ('US🔛HK🔛TW台北', '台湾节点'), ('香港 维护', '香港节点'),
+        for node, region in [('US🔛TW台北', '美国节点'), ('HK🔛US王者', '香港节点'),
+                             ('US🔛HK🔛TW台北', '美国节点'), ('香港 维护', '香港节点'),
+                             ('🇺🇸❻gR.TW台北', '美国节点'), ('🇩🇪 TW台湾', '其他节点'),
+                             ('01 US🔛TW台北', '美国节点'), ('🇨🇱 TW台北', '其他节点'),
+                             ('❶US.霉西|Beta|VS|NF*|AI x0.2', '美国节点'),
                              ('US 下载专用', '美国节点'), ('RUS Test', None)]:
             hits = [name for name, pattern in patterns.items() if re.search(pattern, node)]
             self.assertEqual(hits, [] if region is None else [region], node)
+
+    def test_automatic_groups_use_https(self):
+        for line in build.group_lines():
+            if ' = url-test,' in line:
+                self.assertIn('url=https://www.gstatic.com/generate_204', line.split(','))
 
 
 if __name__ == '__main__':
