@@ -355,10 +355,10 @@
       "format": "clash-classic",
       "count": 214,
       "removed_process_rules": 0,
-      "source_sha256": "227950dff109d355fd8d4eed6124b3b1a3ed4d2fab36b03def3b4f051e8ec3aa",
+      "source_sha256": "6c4b126955eedd28bb2228baa294c9985e42e73986cdb114a24748eb1c230cce",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "1f4bd2b80fb28f43236c17812d09711e69e9f70d04e717fa040d56014622f21d"
+      "sha256": "700fe41ddb644622da0e5767964e374e5e86c3e911b3f894eba8530815f038a6"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
