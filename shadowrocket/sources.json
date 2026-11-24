@@ -225,10 +225,10 @@
       "format": "clash-domain",
       "count": 224,
       "removed_process_rules": 0,
-      "source_sha256": "10cceb54944b6a379fa1645a58f925a2f6b80ae8444d01e327ed77d48774c4e6",
+      "source_sha256": "21fee1a588ef81d49cb45714f7efa4d85c05af2b315443f6d55a4fbab6168391",
       "file": "21-disney.list",
       "policy": "📺 Disney",
-      "sha256": "6f7a950ddcc131f507423711d6acc7570b5d3237dd24f2984a657119d8286261"
+      "sha256": "85dd41a335de55882de6b07e4c9fbe6f5f82ba6820d1316a2ca087888e42e71a"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/clash/NetflixExtra.yaml",
@@ -283,12 +283,12 @@
     {
       "source": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.yaml",
       "format": "clash-domain",
-      "count": 49,
+      "count": 50,
       "removed_process_rules": 0,
-      "source_sha256": "40c485dad07a502b12ced8878e66ed966e411ccd79ff4432f40e4c0f1b0a4476",
+      "source_sha256": "68f5782cdf07b791f8bdae332d8df0cc359a2fe17171e6a4022934708b66303a",
       "file": "27-google-gemini.list",
       "policy": "🔎 Google",
-      "sha256": "5e4218c4168a291b22bac764e3583470b4c8fac2735f242e436a44497c55f2c5"
+      "sha256": "a5d6726f89abc51186dee31c5c15c0e72e52cb7e286b656400a9d84a392639fa"
     },
     {
       "source": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google_No_Resolve.yaml",
@@ -353,12 +353,12 @@
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/OtherAI.yaml",
       "format": "clash-classic",
-      "count": 214,
+      "count": 215,
       "removed_process_rules": 0,
-      "source_sha256": "6c4b126955eedd28bb2228baa294c9985e42e73986cdb114a24748eb1c230cce",
+      "source_sha256": "67617800f3fa5452694f90e56324881b08d00b76812d77e15ae7b1ae0ddbc0ca",
       "file": "34-OtherAI.list",
       "policy": "✨ 其他 AI",
-      "sha256": "700fe41ddb644622da0e5767964e374e5e86c3e911b3f894eba8530815f038a6"
+      "sha256": "b0f9055309f49d67c0a9bab52c3c84db29aacd24b4479a7b335d40aeedba9198"
     },
     {
       "source": "https://raw.githubusercontent.com/AdamCaoyu/routing-rules/refs/heads/main/rules/filtered/AppleServices.yaml",
